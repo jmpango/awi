@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/about_ug_buddy"
+        android:icon="@drawable/abt_ug_buddy"
+        android:showAsAction="ifRoom|withText"
+        android:title="About UG buddy"/>
+    <item
+        android:id="@+id/about_ug"
+        android:icon="@drawable/abt_ug"
+        android:showAsAction="ifRoom|withText"
+        android:title="About Uganda"/>
+    <item
+        android:id="@+id/important_numbers"
+        android:icon="@drawable/imp_number"
+        android:showAsAction="ifRoom|withText"
+        android:title="Important Numbers"/>
+
+</menu>

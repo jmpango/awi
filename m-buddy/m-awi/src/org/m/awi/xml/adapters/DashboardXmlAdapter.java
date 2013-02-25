@@ -1,0 +1,88 @@
+package org.m.awi.xml.adapters;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+public class DashboardXmlAdapter {
+
+	private final String KEY_TAG = "item";
+	private final String KEY_ID = "id";
+	private final String KEY_NAME = "name";
+	private final String KEY_TAGLINE = "tagline";
+	private final String KEY_ICON = "icon";
+
+	private NodeList _dashboardList;
+	private Document _doc;
+	private List<HashMap<String, String>> _dashBoardData;
+
+	public DashboardXmlAdapter(Document _doc)
+			throws ParserConfigurationException, SAXException, IOException {
+		this._doc = _doc;
+		this._dashBoardData = new ArrayList<HashMap<String,String>>();
+		_dashboardList = _doc.getElementsByTagName(KEY_TAG);
+		_doc.getDocumentElement().normalize();
+	}
+
+	public List<HashMap<String, String>> getItems() {
+		HashMap<String, String> map = null;
+
+		for (int i = 0; i < _dashboardList.getLength(); i++) {
+			map = new HashMap<String, String>();
+			Node _firstDashBoardItemNode = _dashboardList.item(i);
+			if (_firstDashBoardItemNode.getNodeType() == Node.ELEMENT_NODE) {
+				Element _firstDashBoardItemElement = (Element) _firstDashBoardItemNode;
+
+				NodeList _idList = _firstDashBoardItemElement
+						.getElementsByTagName(KEY_ID);
+				Element _firstIdElement = (Element) _idList.item(0);
+				NodeList _id = _firstIdElement.getChildNodes();
+
+				// -- id
+				map.put(KEY_ID, ((Node) _id.item(0)).getNodeValue().trim());
+
+				NodeList _nameList = _firstDashBoardItemElement
+						.getElementsByTagName(KEY_NAME);
+				Element _firstNameElement = (Element) _nameList.item(0);
+				NodeList _name = _firstNameElement.getChildNodes();
+
+				// -- name
+				map.put(KEY_NAME, ((Node) _name.item(0)).getNodeValue().trim());
+
+				NodeList _taglineList = _firstDashBoardItemElement
+						.getElementsByTagName(KEY_TAGLINE);
+				Element _firstTaglineElement = (Element) _taglineList.item(0);
+				NodeList _tagLine = _firstTaglineElement.getChildNodes();
+
+				// -- tagline
+				map.put(KEY_TAGLINE, ((Node) _tagLine.item(0)).getNodeValue()
+						.trim());
+
+				NodeList _iconList = _firstDashBoardItemElement
+						.getElementsByTagName(KEY_ICON);
+				Element _firstIconElement = (Element) _iconList.item(0);
+				NodeList _icon = _firstIconElement.getChildNodes();
+
+				// -- icon
+				map.put(KEY_ICON, ((Node) _icon.item(0)).getNodeValue().trim());
+
+				_dashBoardData.add(map);
+			}
+		}
+		return _dashBoardData;
+	}
+
+	public Document get_doc() {
+		return _doc;
+	}
+
+}

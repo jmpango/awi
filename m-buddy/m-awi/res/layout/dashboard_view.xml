@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context="._dashboard" >
+
+    <LinearLayout
+        android:id="@+id/wrapper_dv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/wrapper_top_dv"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="@color/wrapper_top_dv_bgcolor"
+            android:gravity="fill"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wrapper_header_dv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/magin_top_5"
+            android:background="@drawable/banner_bg"
+            android:contentDescription="@string/img_desc"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/logo_dv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/img_desc"
+                    android:src="@drawable/logo" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/content_dv"
+            android:layout_width="fill_parent"
+            android:layout_height="294dp"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/dashboard_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:divider="#b5b5b5"
+                android:dividerHeight="1dp"
+                android:listSelector="@drawable/list_selector" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/advert_dv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_vertical|center_horizontal|center"
+            android:layout_marginTop="@dimen/magin_top_5"
+            android:background="@drawable/advert_bg"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
