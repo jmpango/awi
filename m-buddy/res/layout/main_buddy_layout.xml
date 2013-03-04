@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainBuddy" >
+
+    <LinearLayout
+        android:id="@+id/banner_dv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <include layout="@layout/header_layout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_dv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/banner_dv" >
+        <include layout="@layout/header_search_bar_layout" />
+    </LinearLayout>
+    
+      <LinearLayout
+        android:id="@+id/nav_dv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_dv" >
+        <include layout="@layout/header_navigation_bar_layout" />
+    </LinearLayout>
+    
+      
+    <LinearLayout
+        android:id="@+id/dashboard_list_dv"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_below="@id/nav_dv"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/dashboard_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/list_separator_bg"
+            android:dividerHeight="1dp"
+            android:listSelector="@drawable/list_selector" >
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/advert_dv"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/dashboard_list_dv"
+        android:background="@color/advert_bg"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <ImageView
+        android:id="@+id/next_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/default_desc"
+        android:src="@drawable/arrow" />
+
+    <!-- City-->
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingBottom="9dip"
+        android:text="@string/default_dashboard_item_name"
+        android:textColor="@color/list_view_name_color"
+        android:textSize="@dimen/list_view_name_font_size"
+        android:textStyle="bold"
+        android:typeface="sans" />
+    
+    <!-- Weather Information-->
+
+    <TextView
+        android:id="@+id/tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/name"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/magin_5"
+        android:paddingTop="5dip"
+        android:text="@string/default_dashboard_item_tagline"
+        android:textColor="@color/list_view_tagline_color"
+        android:textSize="@dimen/list_view_tagline_font_size" />
+
+</RelativeLayout>

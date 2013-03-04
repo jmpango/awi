@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="menu_settings">Settings</string>
-     <string name="img_desc">Settings</string>
-     <string name="dashBoardName">Transport</string>
-	<string name="tagLine">Where to find it?</string>
-	<string name="Separator">---</string>
-</resources>

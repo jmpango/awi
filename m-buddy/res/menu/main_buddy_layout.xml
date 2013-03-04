@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/about_ug_buddy"
+        android:icon="@drawable/menu_ug_buddy_ico"
+        android:showAsAction="ifRoom|withText"
+        android:title="UG BUDDY"/>
+    <item
+        android:id="@+id/about_ug"
+        android:icon="@drawable/menu_uganda_ico"
+        android:showAsAction="ifRoom|withText"
+        android:title="UGANDA"/>
+    <item
+        android:id="@+id/important_numbers"
+        android:icon="@drawable/menu_important_number_ico"
+        android:showAsAction="ifRoom|withText"
+        android:title="IMPORTANT NUMBERS"/>
+    <item
+        android:id="@+id/practical_info"
+        android:icon="@drawable/menu_practical_info_ico"
+        android:showAsAction="ifRoom|withText"
+        android:title="PRACTICAL NUMBER"/>
+    <item
+        android:id="@+id/help"
+        android:icon="@drawable/menu_help_ico"
+        android:showAsAction="ifRoom|withText"
+        android:title="HELP"/>
+
+
+</menu>
