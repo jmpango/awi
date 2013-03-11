@@ -1,0 +1,20 @@
+<transport>
+    <listing>
+        <name>Airways</name>
+    </listing>
+     <listing>
+        <name>Bus</name>
+    </listing>
+     <listing>
+        <name>Railway</name>
+    </listing>
+     <listing>
+        <name>Special Hires</name>
+    </listing>
+     <listing>
+        <name>Tour and Travel</name>
+    </listing>
+     <listing>
+        <name>Urban Travel</name>
+    </listing>
+</transport>

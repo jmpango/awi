@@ -1,4 +1,4 @@
-package org.awi.buddy.server.xmladapter;
+package org.awi.buddy.server.adapter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class MainBuddyXmlAdapter {
+public class DashboardXmlAdapter {
 
 	private final String KEY_TAG = "item";
 	private final String KEY_ID = "id";
@@ -24,7 +24,7 @@ public class MainBuddyXmlAdapter {
 	private Document document;
 	private List<DashBoard> dashBoardList;
 
-	public MainBuddyXmlAdapter(Document document)
+	public DashboardXmlAdapter(Document document)
 			throws ParserConfigurationException, SAXException, IOException {
 		this.document = document;
 		

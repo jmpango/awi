@@ -1,0 +1,9 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/inner_search_dv"
+    android:layout_width="fill_parent"
+    android:layout_height="35dip"
+    android:background="@color/search_box_bg"
+    android:baselineAligned="false"
+    android:gravity="center_vertical" >
+
+</LinearLayout>

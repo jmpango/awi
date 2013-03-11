@@ -2,6 +2,7 @@
     android:id="@+id/inner_banner_dv"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="left"
     android:background="@drawable/banner_bg"
     android:orientation="horizontal" >
 
@@ -9,38 +10,43 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/magin_5"
+        android:layout_margin="3dp"
         android:contentDescription="@string/logo_desc"
         android:src="@drawable/logo" />
-
+    
+    <include
+        android:layout_gravity="left"
+        layout="@layout/header_search_bar_layout" />
+   
     <LinearLayout
         android:id="@+id/nav_top_dv"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginLeft="123dp"
-        android:contentDescription="@string/default_desc" >
-
-        <include layout="@layout/navigation_divider" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:contentDescription="@string/default_desc"
+        android:gravity="right" >
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/home_btn"
             style="@style/ActionbarButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/nav_button_selector"
             android:contentDescription="@string/default_desc"
-            android:src="@drawable/nav_home_ico" />
+            android:src="@drawable/home" />
 
-        <include layout="@layout/navigation_divider" />
+         <ImageButton
+             android:id="@+id/advanced_search_btn"
+             style="@style/ActionbarButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="right"
+             android:background="@drawable/nav_button_selector"
+             android:contentDescription="@string/default_desc"
+             android:src="@drawable/quick_search" />
 
-        <ImageButton
-            android:id="@+id/nav_refresh_btn"
-            style="@style/ActionbarButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:contentDescription="@string/default_desc"
-            android:src="@drawable/nav_refresh_ico" />
-    </LinearLayout>
+	</LinearLayout>
 
 </LinearLayout>

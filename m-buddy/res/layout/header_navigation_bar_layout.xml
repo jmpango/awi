@@ -1,26 +1,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/inner_nav_dv"
-    android:layout_width="fill_parent"
-    android:layout_height="25dip"
-    android:background="@color/search_dv_bg"
+    android:layout_width="wrap_content"
+    android:layout_height="20dp"
+    android:background="@color/nav_bg"
     android:baselineAligned="false"
     android:gravity="center_vertical" >
 
     <LinearLayout
         android:id="@+id/nav_dv"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:background="@color/nav_bg" >
+        android:background="@null" >
 
-        <TextView
-            android:id="@+id/msg_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginLeft="@dimen/magin_5"
-            android:layout_marginRight="@dimen/margin_30"
-            android:text="@string/default_nav_msg"
-            android:textColor="@color/nav_msg_font_color" />
+        
     </LinearLayout>
 
 </LinearLayout>

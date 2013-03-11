@@ -1,0 +1,65 @@
+<airways>
+    <airway>
+        <id>1</id>
+        <name>Air Uganda</name>
+        <buddylocation>Kampala</buddylocation>
+        <tagline>The best flight experience</tagline>
+        <email>info@air-uganda.com</email>
+        <url>www.air-uganda.com</url>
+        <telphone>(+256) 75985555, 418569554</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>air</searchtag>
+        </searchtags>
+    </airway>
+    <airway>
+        <id>2</id>
+        <name>British Airways</name>
+        <buddylocation>Kampala</buddylocation>
+        <tagline>A flight with a touch</tagline>
+        <email>info@ba.com</email>
+        <url>www.ba.com</url>
+        <telphone>(+256) 4105223656, 7220055222</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>air</searchtag>
+        </searchtags>
+    </airway>
+    <airway>
+        <id>3</id>
+        <name>Tz Airways</name>
+        <buddylocation>Kampala</buddylocation>
+        <tagline>Welcome abode</tagline>
+        <email></email>
+        <url></url>
+        <telphone>(+256) 4105223656, 7220055222</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>air</searchtag>
+        </searchtags>
+    </airway>
+</airways>

@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainBuddy" >
+    android:layout_height="wrap_content"
+    tools:context=".Listing" >
 
-    <LinearLayout
+        <LinearLayout
         android:id="@+id/banner_dv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -38,11 +38,10 @@
 				    android:textColor="@color/nav_font_color" />
 
         </LinearLayout>
-
     </LinearLayout>
-
+    
     <LinearLayout
-        android:id="@+id/dashboard_list_dv"
+        android:id="@+id/listing_dv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/nav_dv"
@@ -50,7 +49,7 @@
         android:background="@drawable/list_l_bg" >
 
         <ListView
-            android:id="@+id/dashboard_list_view"
+            android:id="@+id/listing_list_view"
             android:layout_width="match_parent"
             android:layout_height="540dp"
             android:divider="@color/list_separator_bg"
@@ -63,9 +62,8 @@
         android:id="@+id/advert_dv"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:layout_below="@id/dashboard_list_dv"
+        android:layout_below="@id/listing_dv"
         android:background="@color/advert_bg"
         android:orientation="vertical" >
     </LinearLayout>
-
 </RelativeLayout>

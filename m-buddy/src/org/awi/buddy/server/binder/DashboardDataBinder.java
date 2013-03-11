@@ -1,4 +1,4 @@
-package org.awi.buddy.server;
+package org.awi.buddy.server.binder;
 
 import java.util.List;
 
@@ -13,13 +13,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class MainBuddyDataBinder extends BaseAdapter {
+public class DashboardDataBinder extends BaseAdapter {
 
 	private LayoutInflater layoutInFlater;
 	private ViewHolder holder;
 	private List<DashBoard> dashBoards;
 
-	public MainBuddyDataBinder(Activity _activity, List<DashBoard> dashBoards) {
+	public DashboardDataBinder(Activity _activity, List<DashBoard> dashBoards) {
 		this.dashBoards = dashBoards;
 		layoutInFlater = (LayoutInflater) _activity
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -45,7 +45,7 @@ public class MainBuddyDataBinder extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View vi = convertView;
 		if (convertView == null) {
-			vi = layoutInFlater.inflate(R.layout.dashboard_list_row, null);
+			vi = layoutInFlater.inflate(R.layout.main_buddy_list_row_template, null);
 			holder = new ViewHolder();
 
 			holder.name = (TextView) vi.findViewById(R.id.name);
@@ -62,7 +62,7 @@ public class MainBuddyDataBinder extends BaseAdapter {
 		return vi;
 	}
 
-	static class ViewHolder {
+	private static class ViewHolder {
 		TextView name;
 		TextView tagline;
 	}
