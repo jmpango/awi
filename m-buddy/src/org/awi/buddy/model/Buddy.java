@@ -6,11 +6,11 @@ public class Buddy {
 
 	private String id;
 	private String name;
-	private String buddyLocation;
 	private String tagLine;
 	private String email;
 	private String telphoneNos;
 	private String url;
+	private String address;
 	private List<Location> locations;
 	private List<SearchTag> searchTags;
 
@@ -31,14 +31,6 @@ public class Buddy {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getBuddyLocation() {
-		return buddyLocation;
-	}
-
-	public void setBuddyLocation(String buddyLocation) {
-		this.buddyLocation = buddyLocation;
 	}
 
 	public String getTagLine() {
@@ -89,4 +81,11 @@ public class Buddy {
 		this.searchTags = searchTags;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 }

@@ -1,8 +1,8 @@
-<airways>
-    <airway>
+<listing>
+    <airways>
         <id>1</id>
         <name>Air Uganda</name>
-        <buddylocation>Kampala</buddylocation>
+        <address>Plot 79B XXXXXXXX,XXXSDSDS,XXXXX</address>
         <tagline>The best flight experience</tagline>
         <email>info@air-uganda.com</email>
         <url>www.air-uganda.com</url>
@@ -19,11 +19,11 @@
             <searchtag>plane</searchtag>
             <searchtag>air</searchtag>
         </searchtags>
-    </airway>
-    <airway>
+    </airways>
+    <airways>
         <id>2</id>
-        <name>British Airways</name>
-        <buddylocation>Kampala</buddylocation>
+        <name>British listing</name>
+        <address>XXXXXXXX,XXXSDSDS,XXXXX</address>
         <tagline>A flight with a touch</tagline>
         <email>info@ba.com</email>
         <url>www.ba.com</url>
@@ -40,11 +40,11 @@
             <searchtag>plane</searchtag>
             <searchtag>air</searchtag>
         </searchtags>
-    </airway>
-    <airway>
+    </airways>
+    <airways>
         <id>3</id>
-        <name>Tz Airways</name>
-        <buddylocation>Kampala</buddylocation>
+        <name>Tz listing</name>
+        <address>XXXXXXXX,XXXSDSDS,XXXXX</address>
         <tagline>Welcome abode</tagline>
         <email></email>
         <url></url>
@@ -61,5 +61,5 @@
             <searchtag>plane</searchtag>
             <searchtag>air</searchtag>
         </searchtags>
-    </airway>
-</airways>
+    </airways>
+</listing>

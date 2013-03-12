@@ -12,9 +12,10 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class BuddyXmlAdapter {
+	
 	private static String ID = "id";
 	private static String NAME = "name";
-	private static String BUDDY_LOCATION = "buddylocation";
+	private static String ADDRESS = "address";
 	private static String TAG_LINE = "tagline";
 	private static String EMAIL = "email";
 	private static String URL = "url";
@@ -58,11 +59,11 @@ public class BuddyXmlAdapter {
 				
 				buddy.setName(((Node)nameList.item(0)).getNodeValue().trim());
 				
-				NodeList  buddyLocationNode = parentElement.getElementsByTagName(BUDDY_LOCATION);
+				NodeList  buddyLocationNode = parentElement.getElementsByTagName(ADDRESS);
 				Element buddyLocationElement = (Element) buddyLocationNode.item(0);
 				NodeList buddyLocationList = buddyLocationElement.getChildNodes();
 				
-				buddy.setBuddyLocation(((Node)buddyLocationList.item(0)).getNodeValue().trim());
+				buddy.setAddress(((Node)buddyLocationList.item(0)).getNodeValue().trim());
 				
 				NodeList  taglineNode = parentElement.getElementsByTagName(TAG_LINE);
 				Element taglineElement = (Element) taglineNode.item(0);
@@ -74,13 +75,17 @@ public class BuddyXmlAdapter {
 				Element emailElement = (Element) emailNode.item(0);
 				NodeList emailList = emailElement.getChildNodes();
 				
-				buddy.setEmail(((Node)emailList.item(0)).getNodeValue().trim());
+				Node emailNodex = ((Node)emailList.item(0));
+				if(emailNodex != null )
+				buddy.setEmail(emailNodex.getNodeValue().trim());
 				
 				NodeList  urlNode = parentElement.getElementsByTagName(URL);
 				Element urlElement = (Element) urlNode.item(0);
 				NodeList urlList = urlElement.getChildNodes();
 				
-				buddy.setUrl(((Node)urlList.item(0)).getNodeValue().trim());
+				Node urlNodex = ((Node)urlList.item(0));
+				if(urlNodex != null)
+				buddy.setUrl(urlNodex.getNodeValue().trim());
 				
 				NodeList  telNode = parentElement.getElementsByTagName(TELPHONE);
 				Element telElement = (Element) telNode.item(0);

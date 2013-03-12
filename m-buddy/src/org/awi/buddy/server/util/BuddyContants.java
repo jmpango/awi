@@ -6,6 +6,7 @@ public final class BuddyContants {
 	
 	public static final String LISTING = "listing";
 	public static final String PAGE_NAME = "pageName";
+	public static final String DEFAULT_XML_EXTENTION = "Listing.xml";
 	
 	
 	

@@ -11,7 +11,10 @@
     <color name="list_view_name_color">#000000</color>
     <color name="list_separator_bg">#9D9D9D</color>
     <color name="listing_name_color">#38536D</color>
-    <color name="listing_tagline_color">#F28731</color>
+    <color name="listing_tagline_color">#3A3A3A</color>
     <color name="listing_rating_color">#709F11</color>
+    <color name="details_left_side_bg">#C99120</color>
+    <color name="details_right_side_bg">#DBB527</color>
+    <color name="details_address_banner_color">#E1E1E1</color>
 
 </resources>

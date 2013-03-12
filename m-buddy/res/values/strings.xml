@@ -31,5 +31,6 @@
     <string name="main_buddy_page_title">Dashboard</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_listing">Listing</string>
+    <string name="default_details_address_text">Address</string>
 
 </resources>

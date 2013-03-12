@@ -111,7 +111,9 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 	@Override
 	public void onPositiveClick(int position) {
 		Intent intent = new Intent(mainBuddy, Listing.class);
-		intent.putExtra(BuddyContants.PAGE_NAME, popUpNameListing[position]);
+		Bundle bundle  = new Bundle();
+		bundle.putString(BuddyContants.PAGE_NAME, popUpNameListing[position]);
+		intent.putExtras(bundle);
 		startActivity(intent);
 		finish();
 	}
