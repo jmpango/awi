@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context=".MainBuddy" >
+
+    <LinearLayout
+        android:id="@+id/banner_dv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/header_layout" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_dv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/banner_dv"
+        android:background="@drawable/navigation_bg"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/page_title_dv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:background="@null" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal|center"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:text="@string/main_buddy_page_title"
+                android:textColor="@color/nav_font_color" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dashboard_list_dv"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/nav_dv"
+        android:background="@drawable/list_l_bg"
+        android:orientation="vertical"
+        android:weightSum="1" >
+
+        <ListView
+            android:id="@+id/dashboard_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/list_separator_bg"
+            android:dividerHeight="1dp"
+            android:listSelector="@drawable/list_selector" >
+        </ListView>
+    </LinearLayout>
+
+    <!-- <include layout="@layout/advert_layout"/> -->
+
+</RelativeLayout>

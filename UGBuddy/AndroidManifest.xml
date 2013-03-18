@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.awi.ui"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
+        <activity
+            android:name="org.awi.ui.MainBuddy"
+            android:label="@string/title_activity_main_buddy" >
+        </activity>
+        <activity
+            android:name="org.awi.ui.Details"
+            android:label="@string/title_activity_name" >
+        </activity>
+        <activity
+            android:name="org.awi.ui.Listing"
+            android:label="@string/title_activity_name" >
+        </activity>
+        <activity
+            android:name="org.awi.ui.SplashScreen"
+            android:label="@string/title_activity_main_buddy" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
