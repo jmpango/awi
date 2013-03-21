@@ -1,0 +1,18 @@
+<listing>
+    <kickboxing>
+        <id>t_aw_1</id>
+        <name>XXXXXX</name>
+        <address>xxxxxxx</address>
+        <tagline></tagline>
+        <email>xxx@xx.com</email>
+        <url>www.xxxx.com</url>
+        <telphone>(+256) 0000000</telphone>
+        <locations>
+            <location>kampala</location>
+        </locations>
+        <searchtags>
+            <searchtag>kick</searchtag>
+            <searchtag>boxing</searchtag>
+        </searchtags>
+    </kickboxing>
+</listing>

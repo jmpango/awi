@@ -1,0 +1,50 @@
+<restuarants>
+    <listing>
+        <name>Japanese</name>
+    </listing>
+     <listing>
+        <name>Chinese</name>
+    </listing>
+     <listing>
+        <name>Indian</name>
+    </listing>
+     <listing>
+        <name>Belgian</name>
+    </listing>
+     <listing>
+        <name>Continental</name>
+    </listing>
+    <listing>
+        <name>Caribbean</name>
+    </listing>
+    <listing>
+        <name>Swiss</name>
+    </listing>
+    <listing>
+        <name>Thai</name>
+    </listing>
+    <listing>
+        <name>German</name>
+    </listing>
+    <listing>
+        <name>Ethoipian</name>
+    </listing>
+    <listing>
+        <name>Fusion</name>
+    </listing>
+    <listing>
+        <name>Korean</name>
+    </listing>
+    <listing>
+        <name>Italian</name>
+    </listing>
+    <listing>
+        <name>African</name>
+    </listing>
+    <listing>
+        <name>Local Food</name>
+    </listing>
+    <listing>
+        <name>Takeout and Delivery</name>
+    </listing>
+</restaurants>

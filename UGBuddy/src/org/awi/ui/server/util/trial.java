@@ -1,6 +1,7 @@
 package org.awi.ui.server.util;
 
 
+
 public class trial {
 	private String[]data;
 	public trial() {
@@ -9,14 +10,18 @@ public class trial {
 	}
 	
 	public static void main(String[] args){
-		String x = "airwaysListing";
+		String x = "airways Listing";
 		
-		System.out.println(x.substring(0, x.indexOf("L")));
+		System.out.println(x.replaceAll(" ", ""));
 	}
 }
 
 
-/*button.setOnClickListener(new OnClickListener() {
+/*
+ * startActivityForResult
+ * http://www.visituganda.com/directory/?jc=tour&page=1
+ * 
+ * button.setOnClickListener(new OnClickListener() {
 	 
 	@Override
 	public void onClick(View arg0) {
@@ -89,3 +94,37 @@ int imageResource = vi
 Drawable image = vi.getContext().getResources()
 		.getDrawable(imageResource);
 holder.image.setImageDrawable(image);*/
+
+/*PhoneCallListener phoneListener = new PhoneCallListener();
+TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);
+
+
+private class PhoneCallListener extends PhoneStateListener {
+		 
+		private boolean isPhoneCalling = false;
+		public void onCallStateChanged(int state, String incomingNumber) {
+ 
+			if (TelephonyManager.CALL_STATE_RINGING == state) {
+			}
+ 
+			if (TelephonyManager.CALL_STATE_OFFHOOK == state) {
+				isPhoneCalling = true;
+			}
+ 
+			if (TelephonyManager.CALL_STATE_IDLE == state) {
+				if (isPhoneCalling) {
+					/*Intent i = getBaseContext().getPackageManager()
+						.getLaunchIntentForPackage(
+							getBaseContext().getPackageName());
+					i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					startActivity(i);
+ 
+					isPhoneCalling = false;
+				}
+ 
+			}
+		}
+	}*/
+
+	

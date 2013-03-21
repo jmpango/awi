@@ -36,7 +36,7 @@
     </item>
    <item>
         <id>d8</id>
-        <name>Resturant</name>
+        <name>Restaurants</name>
         <tagline>Find eats?</tagline>
     </item>
     <item>
@@ -60,4 +60,10 @@
         <name>Worship</name>
         <tagline>Time to pray!</tagline>
     </item>
+    <item>
+        <id>d13</id>
+        <name>Recreaction</name>
+        <tagline>Fun Time!</tagline>
+    </item>
+    
 </dashboard>

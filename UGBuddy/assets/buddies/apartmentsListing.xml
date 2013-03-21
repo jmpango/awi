@@ -1,0 +1,68 @@
+<listing>
+    <apartments>
+        <id>t_apartment_1</id>
+        <name>Mosa Apartments</name>
+        <address>Plot 12, Shimon Road, P.O.Box 2186, Kampala, Uganda</address>
+        <tagline></tagline>
+        <email>reservations@mosacourthotel.com</email>
+        <url>www.mosaapartments.com</url>
+        <telphone>(+256) 414230321, 3122263737</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>shimon</location>
+        </locations>
+        <searchtags>
+            <searchtag>accommodation</searchtag>
+            <searchtag>housing</searchtag>
+            <searchtag>apartments</searchtag>
+            <searchtag>reservations</searchtag>
+            <searchtag>court</searchtag>
+        </searchtags>
+    </apartments>
+    <apartments>
+        <id>t_apartment_1</id>
+        <name>National Housing</name>
+        <address>Plot 5, 7th Street Industrial Area Kampala. P.O.Box 659</address>
+        <tagline>Happy homes, Built to last</tagline>
+        <email>sales@nhcc.co.ug</email>
+        <url>www.nhcc.co.ug</url>
+        <telphone>(+256) 414330002, 414258708</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>industrial area</location>
+        </locations>
+        <searchtags>
+            <searchtag>accommodation</searchtag>
+            <searchtag>housing</searchtag>
+            <searchtag>apartments</searchtag>
+            <searchtag>reservations</searchtag>
+            <searchtag>court</searchtag>
+            <searchtag>national</searchtag>
+        </searchtags>
+    </apartments>
+    <apartments>
+        <id>t_apartment_1</id>
+        <name>Pearl Apartments</name>
+        <address>Plot 644, buziga, munyonyo.</address>
+        <tagline>With a spectacular breath-taking view</tagline>
+        <email>info@pearlapartmentsug.com </email>
+        <url>www.pearlapartmentsug.com</url>
+        <telphone>(+256) 414268727, 718064585</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>buziga</location>
+            <location>munyonyo</location>
+        </locations>
+        <searchtags>
+            <searchtag>accommodation</searchtag>
+            <searchtag>housing</searchtag>
+            <searchtag>apartments</searchtag>
+            <searchtag>reservations</searchtag>
+            <searchtag>court</searchtag>
+            <searchtag>national</searchtag>
+        </searchtags>
+    </apartments>
+</listing>

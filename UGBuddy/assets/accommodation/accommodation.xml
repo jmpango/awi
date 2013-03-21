@@ -1,0 +1,23 @@
+<accomodation>
+     <listing>
+        <name>Apartments</name>
+    </listing>
+    <listing>
+        <name>Cottages</name>
+    </listing>
+    <listing>
+        <name>Guest Houses</name>
+    </listing>
+    <listing>
+        <name>Hostels</name>
+    </listing>
+    <listing>
+        <name>Hotels</name>
+    </listing>
+     <listing>
+        <name>Lodges</name>
+    </listing>
+    <listing>
+        <name>Rentals and Long term</name>
+    </listing>
+</accomodation>

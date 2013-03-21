@@ -1,0 +1,35 @@
+<attractions>
+     <listing>
+        <name>National Parks</name>
+    </listing>
+    <listing>
+        <name>Islands</name>
+    </listing>
+    <listing>
+        <name>Beaches</name>
+    </listing>
+    <listing>
+        <name>Lakes</name>
+    </listing>
+    <listing>
+        <name>Rivers</name>
+    </listing>
+     <listing>
+        <name>Mountains</name>
+    </listing>
+    <listing>
+        <name>Cultural Centers</name>
+    </listing>
+    <listing>
+        <name>Mountains</name>
+    </listing>
+    <listing>
+        <name>Animal Refuge</name>
+    </listing>
+    <listing>
+        <name>Sight Seeing</name>
+    </listing>
+    <listing>
+        <name>Museum and Art</name>
+    </listing>
+</attractions>

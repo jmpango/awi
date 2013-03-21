@@ -1,0 +1,21 @@
+<listing>
+    <lodges>
+        <id>t_aw_1</id>
+        <name>7 Hills</name>
+        <address>P. O Box 11268 Kampala</address>
+        <tagline>We Let and Sell Property</tagline>
+        <email>7hills@7hillsuganda.com</email>
+        <url>www.7hillsuganda.com</url>
+        <telphone>(+256) 752402288</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+        </locations>
+        <searchtags>
+            <searchtag>accommodations</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>long term</searchtag>
+            <searchtag>7 Hills</searchtag>
+        </searchtags>
+    </lodges>
+</listing>

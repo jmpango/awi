@@ -3,10 +3,10 @@ package org.awi.ui.model;
 import java.io.Serializable;
 import java.util.List;
 
-public class Buddy implements Serializable{
+public class Buddy implements Serializable, Comparable<Buddy> {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private String id;
 	private String name;
 	private String tagLine;
@@ -90,5 +90,12 @@ public class Buddy implements Serializable{
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	@Override
+	public int compareTo(Buddy buddy) {
+		if (this.getName() == null || buddy.getName() == null)
+			return 0;
+		return this.name.compareToIgnoreCase(buddy.name);
 	}
 }

@@ -1,0 +1,20 @@
+<listing>
+    <railway>
+        <id>t_rail_1</id>
+        <name>Rift Valley Railways</name>
+        <address>Kampala Railway Station. Station Road, Kampala, Uganda</address>
+        <tagline></tagline>
+        <email></email>
+        <url>http://www.riftvalleyrail.com</url>
+        <telphone>(+256) 312314700, 312265203</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+        </locations>
+        <searchtags>
+            <searchtag>railway</searchtag>
+            <searchtag>station</searchtag>
+            <searchtag>transport</searchtag>
+        </searchtags>
+    </railway>
+</listing>

@@ -33,6 +33,9 @@
     <string name="title_activity_listing">Listing</string>
     <string name="default_details_address_text">Address</string>
     <string name="title_activity_name">UG Buddy</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="default_email_subject_text">Subject:</string>
+    <string name="default_email_text">Message</string>
+    <string name="email_send_btn_text">Send</string>
+    <string name="cancel_btn_text">Cancel</string>
 
 </resources>

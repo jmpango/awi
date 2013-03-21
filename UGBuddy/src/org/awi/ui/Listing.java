@@ -6,6 +6,7 @@ import java.util.List;
 import org.awi.ui.model.Buddy;
 import org.awi.ui.model.Globals;
 import org.awi.ui.server.databinder.BuddyDataBinder;
+import org.awi.ui.server.service.BackHomeButtonListener;
 import org.awi.ui.server.service.impl.BuddyServiceImpl;
 import org.awi.ui.server.util.BuddyContants;
 
@@ -15,21 +16,22 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class Listing extends BaseActivity implements OnItemClickListener,
-		TextWatcher {
+		TextWatcher, BackHomeButtonListener {
 
-	private Listing listing;
 	private ListView listingListView;
 	private ListingSearchAsyncTask listingSearchAsyncTask;
 
 	private List<Buddy> listingList, tempListingList;
-	private String parentTag;
+	private String parentTag, buddyName;
 
 	private TextView pageTitle;
 
@@ -38,9 +40,8 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 		setContentView(R.layout.listing_layout);
 
 		Bundle bundle = this.getIntent().getExtras();
-		this.parentTag = bundle.getString(BuddyContants.PAGE_NAME)
-				.toLowerCase();
-		this.listing = this;
+		this.parentTag = bundle.getString(BuddyContants.PAGE_NAME).toUpperCase();
+		this.buddyName = bundle.getString("buddyFileName");
 
 		prepareListingUI();
 	}
@@ -51,8 +52,11 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 		this.listingListView = (ListView) findViewById(R.id.listing_list_view);
 		this.dashBoardSearchBox = (EditText) findViewById(R.id.search_box);
 		this.pageTitle = (TextView) findViewById(R.id.pageTitle);
-		pageTitle.setText(BuddyContants.CONVERT_FIRST_LETTER_CAPS(parentTag)
-				+ " Listing");
+		this.homeBtn = (ImageButton) findViewById(R.id.home_btn);
+		
+		backHomeBtnClickHandler();
+		
+		pageTitle.setText(parentTag + " LISTING");
 
 		this.dashBoardSearchBox.addTextChangedListener(this);
 		this.listingListView.setOnItemClickListener(this);
@@ -61,9 +65,10 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 			buddyService = BuddyServiceImpl.getInstance();
 		}
 
-		this.listingList = Globals.getInstance().getBuddy(parentTag);
+		Globals.getInstance();
+		this.listingList = Globals.getBuddy(buddyName);
 		this.tempListingList = listingList;
-		listingListView.setAdapter(new BuddyDataBinder(listing, listingList));
+		listingListView.setAdapter(new BuddyDataBinder(Listing.this, listingList));
 
 	}
 
@@ -93,7 +98,7 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		Buddy buddy = tempListingList.get(position);
-		Intent intent = new Intent(listing, Details.class);
+		Intent intent = new Intent(Listing.this, Details.class);
 		intent.putExtra(BuddyContants.DEFAULT_BUDDY, buddy);
 		gabaggeCollector();
 		startActivity(intent);
@@ -113,7 +118,7 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 			if (tempListingList.size() == 0)
 				showMsgBox(BuddyContants.NO_RESULT_FOUND);
 
-			listingListView.setAdapter(new BuddyDataBinder(listing,
+			listingListView.setAdapter(new BuddyDataBinder(Listing.this,
 					tempListingList));
 		}
 	}
@@ -141,7 +146,24 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 		this.tempListingList = null;
 		this.parentTag = null;
 		this.pageTitle = null;
-		this.listing = null;
 		Listing.this.finish();
+	}
+
+	@Override
+	public void backHomeBtnClickHandler() {
+		homeBtn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(Listing.this, MainBuddy.class);
+				gabaggeCollector();
+				startActivity(intent);
+			}
+		});
+
+	}
+
+	@Override
+	public void clossApplicationBtnClickHandler() {
+		
 	}
 }

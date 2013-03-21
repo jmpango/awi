@@ -1,33 +1,34 @@
 <listing>
     <airways>
         <id>t_aw_1</id>
-        <name>Air Uganda</name>
-        <address>Plot 79B XXXXXXXX,XXXSDSDS,XXXXX</address>
-        <tagline>The best flight experience</tagline>
-        <email>info@air-uganda.com</email>
-        <url>www.air-uganda.com</url>
-        <telphone>(+256) 75985555, 418569554</telphone>
+        <name>Air Tanzania</name>
+        <address>Suite 03,Social Security House,Ground Floor, Jinja Road, Kampala</address>
+        <tagline></tagline>
+        <email>airtanzaniaebb@africaonline.com</email>
+        <url>www.airtanzania.com</url>
+        <telphone>(+256) 414236944, 4236950</telphone>
         <locations>
             <location>uganda</location>
             <location>kampala</location>
             <location>entebbe</location>
+            <location>tanzania</location>
         </locations>
         <searchtags>
             <searchtag>airline</searchtag>
             <searchtag>airport</searchtag>
             <searchtag>flight</searchtag>
             <searchtag>plane</searchtag>
-            <searchtag>air</searchtag>
+            <searchtag>tc</searchtag>
         </searchtags>
     </airways>
     <airways>
         <id>t_aw_2</id>
-        <name>British listing</name>
-        <address>XXXXXXXX,XXXSDSDS,XXXXX</address>
-        <tagline>A flight with a touch</tagline>
-        <email>info@ba.com</email>
-        <url>www.ba.com</url>
-        <telphone>(+256) 4105223656, 7220055222</telphone>
+        <name>African Express Airways</name>
+        <address>2 Shumuk House, Colville Street, Kampala</address>
+        <tagline></tagline>
+        <email>sales@africanexpress.ug</email>
+        <url>www.africanexpress.ug</url>
+        <telphone>(+256) 312515148</telphone>
         <locations>
             <location>uganda</location>
             <location>kampala</location>
@@ -38,17 +39,16 @@
             <searchtag>airport</searchtag>
             <searchtag>flight</searchtag>
             <searchtag>plane</searchtag>
-            <searchtag>air</searchtag>
         </searchtags>
     </airways>
     <airways>
         <id>t_aw_3</id>
-        <name>Tz listing</name>
-        <address>XXXXXXXX,XXXSDSDS,XXXXX</address>
-        <tagline>Welcome abode</tagline>
-        <email></email>
-        <url></url>
-        <telphone>(+256) 4105223656, 7220055222</telphone>
+        <name>Air Uganda</name>
+        <address>(Head Office), Investment House Building, Second Floor,Plot4,Wampewo Avenue, Kololo, Kampala</address>
+        <tagline></tagline>
+        <email>info@air-uganda.com</email>
+        <url>www.air-uganda.com</url>
+        <telphone>(+256) 414258262, 412165555</telphone>
         <locations>
             <location>uganda</location>
             <location>kampala</location>
@@ -59,7 +59,375 @@
             <searchtag>airport</searchtag>
             <searchtag>flight</searchtag>
             <searchtag>plane</searchtag>
-            <searchtag>air</searchtag>
+            <searchtag>u7</searchtag>
+        </searchtags>
+    </airways>
+     <airways>
+        <id>t_aw_4</id>
+        <name>Asante Air Service Southern Sudan</name>
+        <address>Office 1 RA Village next to Juba Office</address>
+        <tagline></tagline>
+        <email>asanteair@infocom.co.ug</email>
+        <url></url>
+        <telphone>(+256) 414257414</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>juba</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>u7</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_5</id>
+        <name>British Airways</name>
+        <address>Centre Court, Plot 4 Teran Avenue</address>
+        <tagline></tagline>
+        <email>uganda@britishairways.com</email>
+        <url>www.britishairways.com/travel/uganda/public/en_gb</url>
+        <telphone>(+256) 414257414, 414257416</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>ba</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_6</id>
+        <name>Brussels Airways</name>
+        <address>1 Lumumba Avenue, Rwenzori House Ground Floor, Nakasero. Open Mon - Fri 08:30 - 17:00, Sat 09:00 - 13:00</address>
+        <tagline></tagline>
+        <email>infoug@brusselsairlines.com</email>
+        <url>www.uganda.brusselsairlines.com/</url>
+        <telphone>(+256) 414234201, 414320877</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>sn</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_7</id>
+        <name>Delta Airlines</name>
+        <address>PSL Building, Uma Center Logogo Showgrounds, Kampala</address>
+        <tagline></tagline>
+        <email>sales@deltaairlines.co.ug</email>
+        <url>www.deltaairlines.co.ug/</url>
+        <telphone>(+256) 414288927, 414282932</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_8</id>
+        <name>Eagle Air</name>
+        <address>Plot 11 Portal Avenue</address>
+        <tagline></tagline>
+        <email>reservations@eagleair-ug.com</email>
+        <url>www.eagleair-ug.com/</url>
+        <telphone>(+256) 414344292,  414344501</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>h7</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_9</id>
+        <name>Egypt Air</name>
+        <address>Nile Avenue, Shop 11, Grand Imperial Hotel Arcade</address>
+        <tagline></tagline>
+        <email>egyptair@utlonline.co.ug</email>
+        <url></url>
+        <telphone>(+256) 414233960,  414341276</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>ms</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_10</id>
+        <name>Emirates</name>
+        <address>Kimathi Avenue, FNC Building. P.O.Box 33124, Kampala Uganda, Working hours Mon to Fri 08:30 to 16:30, Sat 08:30 to 12:30, Sun and public holidays closed.</address>
+        <tagline></tagline>
+        <email></email>
+        <url>www.emirates.com/ug</url>
+        <telphone>(+256) 417710444</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>ek</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_11</id>
+        <name>Ethopian Airlines</name>
+        <address>Plot 1 Kimathi Avenue, United Assurance Building. P.O.Box 3591 Kampala, Uganda</address>
+        <tagline></tagline>
+        <email></email>
+        <url>www.emirates.com/ug</url>
+        <telphone>(+256) 414345118, 414345577 </telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>et</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_12</id>
+        <name>Fly540</name>
+        <address>Yusuf Lule Road, Nakumatt Oasis Mall, 2nd Floor, Kampala. P.O. Box 22335, Kampala</address>
+        <tagline></tagline>
+        <email>info@fly540.com</email>
+        <url>www.fly540.com</url>
+        <telphone>(+256) 414346907, 776540540 </telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+            <searchtag>5h</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_13</id>
+        <name>Gulf Air</name>
+        <address>First floor, Garden City Shopping Center, Yusuf Lule Road- Kampala</address>
+        <tagline></tagline>
+        <email></email>
+        <url>www.gulfair.com</url>
+        <telphone>(+256) 414343190, 414343210 </telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_14</id>
+        <name>Kampala Aeroclub Flight Training Center</name>
+        <address>P.O.Box 24305, Kampala, Uganda</address>
+        <tagline></tagline>
+        <email>info@flyuganda.com</email>
+        <url>www.flyuganda.com</url>
+        <telphone>(+256) 772706107 </telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_15</id>
+        <name>Kenya Airways</name>
+        <address>Plot 14 Parliament Avenue P.O.Box 6969 Kampala, Uganda, Kimathi Avenue</address>
+        <tagline></tagline>
+        <email>kampalareservations@kenya-airways.com</email>
+        <url>www.kenya-airways.com</url>
+        <telphone>(+256) 312360000, 414344304 </telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_16</id>
+        <name>KLM Royal Dutch Airlines</name>
+        <address>Plot 14 Parliament Avenue. P.O.Box 34430, Kampala, Uganda</address>
+        <tagline></tagline>
+        <email>bluebiz.ug@klm.com</email>
+        <url>www.klm.com</url>
+        <telphone>(+256) 414338001, 414338000 </telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_17</id>
+        <name>Precision Air</name>
+        <address>Jubilee Insurance Center Parliament Avenue, Kampala</address>
+        <tagline></tagline>
+        <email></email>
+        <url></url>
+        <telphone>(+256) 312360000, 312360113 </telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+        </searchtags>
+    </airways>
+     <airways>
+        <id>t_aw_18</id>
+        <name>Rwandair Express</name>
+        <address>Rwenzori Courts, Glound Floor, Lumumba Avenue</address>
+        <tagline></tagline>
+        <email>sales.kampala@rwandair.com</email>
+        <url>www.rwandair.com</url>
+        <telphone>(+256) 414344851, 41434485 </telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_19</id>
+        <name>SN Brussels</name>
+        <address>Ground Floor, Rwenzori House. Plot Lumumba Avenue. P.O.Box 3966</address> 
+        <tagline></tagline>
+        <email>infoug@brusselairlines.com</email>
+        <url>www.uganda.brusselsairlines.com</url>
+        <telphone>(+256) 414234200, 414234201</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_20</id>
+        <name>South African Airways</name>
+        <address>Workers House, Suite 14, Ground Floor, plot 1 pilkington Road, Kampala Mon - Fri: 08:00 - 17:00, Sat: 09:00 - 13:00</address> 
+        <tagline></tagline>
+        <email>saakla@flysaa.com</email>
+        <url>www.flysaa.com</url>
+        <telphone>(+256) 414345772, 414255501</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
+        </searchtags>
+    </airways>
+    <airways>
+        <id>t_aw_21</id>
+        <name>Turkish Airlines</name>
+        <address>Ruth Towers, 3rd Floor, Plot 15A, Clement Hill Rd. Kampala</address> 
+        <tagline></tagline>
+        <email></email>
+        <url>www.turkishairlines.com</url>
+        <telphone>(+256) 414253433, 414253435</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>airline</searchtag>
+            <searchtag>airport</searchtag>
+            <searchtag>flight</searchtag>
+            <searchtag>plane</searchtag>
         </searchtags>
     </airways>
 </listing>

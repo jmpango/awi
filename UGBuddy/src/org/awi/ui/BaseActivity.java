@@ -20,6 +20,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -147,7 +148,12 @@ public class BaseActivity extends FragmentActivity implements BaseBuddy, OnSearc
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				onDestroy();
+				//Intent intent = new Intent(Intent.ACTION_MAIN);
+				Intent intent = new Intent(getApplicationContext(), SplashScreen.class);
+				//intent.addCategory(Intent.CATEGORY_HOME);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.putExtra("EXIT", true);
+				startActivity(intent);
 			}
 		});
 		alert_back.show();

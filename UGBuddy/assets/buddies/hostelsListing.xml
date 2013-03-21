@@ -1,0 +1,22 @@
+<listing>
+    <hostels>
+        <id>t_aw_1</id>
+        <name>Nana Hostels</name>
+        <address>P.O.Box 1398 Wandegeya, Kampala - Uganda </address>
+        <tagline>Home Far Away From Home</tagline>
+        <email></email>
+        <url>www.nanahostels.com</url>
+        <telphone>(+256) 00000000</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>wandegeya</location>
+            <location>makerere</location>
+        </locations>
+        <searchtags>
+            <searchtag>ldc</searchtag>
+            <searchtag>accommodations</searchtag>
+            <searchtag>hotels</searchtag>
+        </searchtags>
+    </hostels>
+</listing>

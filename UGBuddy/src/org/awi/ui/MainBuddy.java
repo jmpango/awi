@@ -8,11 +8,15 @@ import org.awi.ui.model.DashBoard;
 import org.awi.ui.model.Globals;
 import org.awi.ui.server.databinder.DashboardDataBinder;
 import org.awi.ui.server.service.AlertPositiveListener;
+import org.awi.ui.server.service.BackHomeButtonListener;
 import org.awi.ui.server.service.DashboardService;
+import org.awi.ui.server.service.impl.BuddyServiceImpl;
 import org.awi.ui.server.service.impl.DashboardServiceImpl;
 import org.awi.ui.server.util.BuddyContants;
 import org.awi.ui.server.util.BuddyDialogRadio;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -29,10 +33,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainBuddy extends BaseActivity implements OnItemClickListener,
-		TextWatcher, AlertPositiveListener {
+		TextWatcher, AlertPositiveListener, BackHomeButtonListener {
 
 	private ListView dashBoardListView;
-	private MainBuddy mainBuddy;
 	private DashboardAsyncTask dashboardAsyncTask;
 	private DashboardSearchAsyncTask dashboardSearchAsyncTask;
 	private DashboardService dashBoardService;
@@ -43,7 +46,6 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_buddy_layout);
-		this.mainBuddy = this;
 		prepareUI();
 	}
 
@@ -53,13 +55,8 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 		this.dashBoardListView = (ListView) findViewById(R.id.dashboard_list_view);
 		this.dashBoardSearchBox = (EditText) findViewById(R.id.search_box);
 		this.homeBtn = (ImageButton) findViewById(R.id.home_btn);
-		homeBtn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(mainBuddy, "Already Home", Toast.LENGTH_SHORT)
-						.show();
-			}
-		});
+
+		backHomeBtnClickHandler();
 
 		this.dashBoardSearchBox.addTextChangedListener(this);
 		this.dashBoardListView.setOnItemClickListener(this);
@@ -72,7 +69,7 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 
 		@Override
 		protected void onPreExecute() {
-			showProgressBar(mainBuddy);
+			showProgressBar(MainBuddy.this);
 		}
 
 		@Override
@@ -82,8 +79,8 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 			if (dashBoardList == null)
 				dashBoardList = tempDashboardList;
 
-			dashBoardListView.setAdapter(new DashboardDataBinder(mainBuddy,
-					tempDashboardList));
+			dashBoardListView.setAdapter(new DashboardDataBinder(
+					MainBuddy.this, tempDashboardList));
 			try {
 				this.finalize();
 				this.cancel(true);
@@ -109,8 +106,9 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 		protected void onPostExecute(Void result) {
 			if (tempDashboardList.size() == 0)
 				showMsgBox(BuddyContants.NO_RESULT_FOUND);
-			
-			dashBoardListView.setAdapter(new DashboardDataBinder(mainBuddy,	tempDashboardList));
+
+			dashBoardListView.setAdapter(new DashboardDataBinder(
+					MainBuddy.this, tempDashboardList));
 			hideMsgBox();
 
 			try {
@@ -133,19 +131,23 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 	@Override
 	public void onPositiveClick(int position) {
 		if (popUpNameListing != null) {
-			List<Buddy> buddies = Globals.getInstance().getBuddy(
-					popUpNameListing[position].toLowerCase());
-			if (buddies == null) {
-				showToast("No Results found.");
-			} else {
-				Intent intent = new Intent(mainBuddy, Listing.class);
-				Bundle bundle = new Bundle();
-				bundle.putString(BuddyContants.PAGE_NAME,
-						popUpNameListing[position]);
-				intent.putExtras(bundle);
-				gabaggeCollector();
-				startActivity(intent);
+			Globals.getInstance();
+			String name = BuddyContants.REMOVE_WHITESPACES(popUpNameListing[position]).toLowerCase();
+			List<Buddy> buddies = Globals.getBuddy(name);
+			if (buddies.size() == 0) {
+				BuddyContants.LOAD_APP_DATA(getAssets(),
+						BuddyServiceImpl.getInstance());
 			}
+
+			Intent intent = new Intent(MainBuddy.this, Listing.class);
+			Bundle bundle = new Bundle();
+			bundle.putString(BuddyContants.PAGE_NAME,
+					popUpNameListing[position]);
+			bundle.putString("buddyFileName", name);
+			intent.putExtras(bundle);
+			gabaggeCollector();
+			startActivity(intent);
+
 		}
 	}
 
@@ -174,9 +176,6 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 			pDialog = null;
 			homeBtn = null;
 			baseActivity = null;
-
-			this.mainBuddy = null;
-
 			MainBuddy.this.finish();
 		} catch (Throwable e) {
 		}
@@ -204,8 +203,9 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		DashBoard dBoard = tempDashboardList.get(position);
-		popUpNameListing = getData(getAssets(), BuddyContants.LISTING, dBoard
-				.getName().toLowerCase() + ".xml");
+		String selectItem = BuddyContants.REMOVE_WHITESPACES(dBoard.getName()).toLowerCase();
+		
+		popUpNameListing = getData(getAssets(), BuddyContants.LISTING, selectItem+ "/" + selectItem + ".xml");
 
 		FragmentManager manager = getSupportFragmentManager();
 		BuddyDialogRadio alert = new BuddyDialogRadio(popUpNameListing,
@@ -215,5 +215,42 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 		bundle.putInt("position", position);
 		alert.setArguments(bundle);
 		alert.show(manager, "alert_dialog_radio");
+	}
+
+	@Override
+	public void backHomeBtnClickHandler() {
+		homeBtn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(MainBuddy.this, "Already Home",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public void clossApplicationBtnClickHandler() {
+		AlertDialog alert_back = new AlertDialog.Builder(this).create();
+		alert_back.setTitle("UG Buddy");
+		alert_back.setMessage("Are you sure want to Quit?");
+
+		alert_back.setButton("No", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		});
+
+		alert_back.setButton2("Yes", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				gabaggeCollector();
+				MainBuddy.this.onDestroy();
+			}
+		});
+		alert_back.show();
 	}
 }

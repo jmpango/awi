@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Globals {
 	private static Globals instance;
-	private HashMap<String, List<Buddy>> dataz;
+	private static HashMap<String, List<Buddy>> dataz;
 	
 	private Globals(){
 		dataz = new HashMap<String, List<Buddy>>();
@@ -24,7 +24,7 @@ public class Globals {
 	}
 
 	public void setDataz(HashMap<String, List<Buddy>> dataz) {
-		this.dataz = dataz;
+		Globals.dataz = dataz;
 	}
 	
 	public void addGlobalData(String identifier, List<Buddy> buddies) {
@@ -39,10 +39,10 @@ public class Globals {
 		this.getDataz().put(identifier, buddies);
 	    }
 	
-	public List<Buddy> getBuddy(String identifier){
-		if(this.dataz == null)
+	public static final List<Buddy> getBuddy(String identifier){
+		if(dataz == null)
 			return new ArrayList<Buddy>();
 			
-		return this.dataz.get(identifier);
+		return dataz.get(identifier);
 	}
 }

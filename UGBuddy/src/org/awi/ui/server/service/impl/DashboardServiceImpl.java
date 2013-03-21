@@ -2,6 +2,7 @@ package org.awi.ui.server.service.impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -66,7 +67,7 @@ public class DashboardServiceImpl implements DashboardService {
 				}
 			}
 		}
-		
+		Collections.sort(newSearchedDashBoard);
 		return newSearchedDashBoard;
 	}
 

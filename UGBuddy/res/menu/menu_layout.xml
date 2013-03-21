@@ -19,7 +19,7 @@
         android:id="@+id/practical_info"
         android:icon="@drawable/menu_practical_info_ico"
         android:showAsAction="ifRoom|withText"
-        android:title="PRACTICAL NUMBER"/>
+        android:title="PRACTICAL INFO"/>
     <item
         android:id="@+id/help"
         android:icon="@drawable/menu_help_ico"

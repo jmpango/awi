@@ -1,0 +1,199 @@
+<listing>
+    <specialhire>
+        <id>t_sHire_1</id>
+        <name>City Cab</name>
+        <address>95 6th Street, Industrial Area, P.O. Box 10827, Kampala, Uganda</address>
+        <tagline></tagline>
+        <email></email>
+        <url></url>
+        <telphone>(+256) 417130130</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>Industrial Area</location>
+        </locations>
+        <searchtags>
+            <searchtag>self drive</searchtag>
+            <searchtag>special hire</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>car</searchtag>
+        </searchtags>
+    </specialhire>
+    <specialhire>
+        <id>t_sHire_2</id>
+        <name>City Cars</name>
+        <address>Tankhill Road, Muyenga</address>
+        <tagline></tagline>
+        <email>value@citycars.co.ug</email>
+        <url>www.citycars.co.ug</url>
+        <telphone>(+256) 312260087, 414268611, 772651433</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>muyenga</location>
+        </locations>
+        <searchtags>
+            <searchtag>self drive</searchtag>
+            <searchtag>special hire</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>car</searchtag>
+        </searchtags>
+    </specialhire>
+    <specialhire>
+        <id>t_sHire_3</id>
+        <name>Europcar</name>
+        <address>Entebbe International Airport. Entebbe, Uganda</address>
+        <tagline></tagline>
+        <email></email>
+        <url></url>
+        <telphone>(+256) 414237211</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>entebbe</location>
+        </locations>
+        <searchtags>
+            <searchtag>self drive</searchtag>
+            <searchtag>special hire</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>car</searchtag>
+        </searchtags>
+    </specialhire>
+    <specialhire>
+        <id>t_sHire_4</id>
+        <name>Global Hire Services</name>
+        <address>Clive Road, Jinja. P.O.Box 11 Jinja, Uganda</address>
+        <tagline></tagline>
+        <email></email>
+        <url></url>
+        <telphone>(+256) 43120110, 414255144</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>jinja</location>
+        </locations>
+        <searchtags>
+            <searchtag>self drive</searchtag>
+            <searchtag>special hire</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>car</searchtag>
+        </searchtags>
+    </specialhire>
+    <specialhire>
+        <id>t_sHire_5</id>
+        <name>Hertz Rental a Car</name>
+        <address>Communications House, Plot 1 Colville Street Kampala</address>
+        <tagline></tagline>
+        <email>hertz-u@swiftuganda.com</email>
+        <url>www.hertz.com</url>
+        <telphone>(+256) 414347191, 414255144</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+        </locations>
+        <searchtags>
+            <searchtag>self drive</searchtag>
+            <searchtag>special hire</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>car</searchtag>
+        </searchtags>
+    </specialhire>
+    <specialhire>
+        <id>t_sHire_5</id>
+        <name>Reliable Car Services</name>
+        <address>Suite 9, Pioneer House, Plot 28 Jinja Road, P.O.BOX 27098 Kampala, Uganda</address>
+        <tagline></tagline>
+        <email>rntumwesigye@gmail.com</email>
+        <url></url>
+        <telphone>(+256) 712929392, 704022882</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+        </locations>
+        <searchtags>
+            <searchtag>self drive</searchtag>
+            <searchtag>special hire</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>car</searchtag>
+        </searchtags>
+    </specialhire>
+    <specialhire>
+        <id>t_sHire_6</id>
+        <name>Safari Eye Ltd</name>
+        <address>Old Port Bell Road, Kobil Station Bugolobi. P.O Box 2972 Kampala</address>
+        <tagline></tagline>
+        <email>info@safarieye.co.ug</email>
+        <url>www.safarieye.co.ug</url>
+        <telphone>(+256) 414576584, 772443012</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>bugolobi</location>
+        </locations>
+        <searchtags>
+            <searchtag>self drive</searchtag>
+            <searchtag>special hire</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>car</searchtag>
+        </searchtags>
+    </specialhire>
+     <specialhire>
+        <id>t_sHire_7</id>
+        <name>Spear Motors Ltd</name>
+        <address>Spear Motors Complex, Nakawa. Plot M428, Nakawa, Jinja Road</address>
+        <tagline></tagline>
+        <email>sales@spearmotors.co.ug</email>
+        <url>www.spearmotors.co.ug</url>
+        <telphone>(+256) 414285551, 414505664</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>nakawa</location>
+        </locations>
+        <searchtags>
+            <searchtag>self drive</searchtag>
+            <searchtag>special hire</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>car</searchtag>
+        </searchtags>
+    </specialhire>
+    <specialhire>
+        <id>t_sHire_8</id>
+        <name>Sunset Car Hire</name>
+        <address>King Faisal Building -Kampla road opposite Tervern</address>
+        <tagline></tagline>
+        <email></email>
+        <url></url>
+        <telphone>(+256) 7942458484</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+        </locations>
+        <searchtags>
+            <searchtag>self drive</searchtag>
+            <searchtag>special hire</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>car</searchtag>
+        </searchtags>
+    </specialhire>
+    <specialhire>
+        <id>t_sHire_9</id>
+        <name>Taps Ltd</name>
+        <address>MNS House, Kitintale</address>
+        <tagline></tagline>
+        <email></email>
+        <url></url>
+        <telphone>(+256) 312514800, 789834814</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>kitintale</location>
+        </locations>
+        <searchtags>
+            <searchtag>self drive</searchtag>
+            <searchtag>special hire</searchtag>
+            <searchtag>rentals</searchtag>
+            <searchtag>car</searchtag>
+        </searchtags>
+    </specialhire>
+</listing>

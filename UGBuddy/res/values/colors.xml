@@ -16,5 +16,6 @@
     <color name="details_left_side_bg">#C99120</color>
     <color name="details_right_side_bg">#DBB527</color>
     <color name="details_address_banner_color">#E1E1E1</color>
+    <color name="default_white">#FFFFFF</color>
 
 </resources>

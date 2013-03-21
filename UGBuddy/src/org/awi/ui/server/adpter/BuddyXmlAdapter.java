@@ -1,6 +1,7 @@
 package org.awi.ui.server.adpter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.awi.ui.model.Buddy;
@@ -69,7 +70,9 @@ public class BuddyXmlAdapter {
 				Element taglineElement = (Element) taglineNode.item(0);
 				NodeList taglineList = taglineElement.getChildNodes();
 				
-				buddy.setTagLine(((Node)taglineList.item(0)).getNodeValue().trim());
+				Node tagNode = ((Node)taglineList.item(0));
+				if(tagNode != null )
+				buddy.setTagLine(tagNode.getNodeValue().trim());
 				
 				NodeList  emailNode = parentElement.getElementsByTagName(EMAIL);
 				Element emailElement = (Element) emailNode.item(0);
@@ -134,7 +137,8 @@ public class BuddyXmlAdapter {
 				buddies.add(buddy);
 			}
 		}
-
+		
+		Collections.sort(buddies);
 		return buddies;
 	}
 

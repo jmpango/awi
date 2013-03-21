@@ -1,6 +1,6 @@
 package org.awi.ui.model;
 
-public class DashBoard {
+public class DashBoard implements Comparable<DashBoard>{
 	private String id;
 	private String name;
 	private String tagLine;
@@ -30,6 +30,13 @@ public class DashBoard {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	@Override
+	public int compareTo(DashBoard dashboard) {
+		if (this.getName() == null || dashboard.getName() == null)
+			return 0;
+		return this.name.compareToIgnoreCase(dashboard.name);
 	}
 
 }

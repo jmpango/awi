@@ -1,0 +1,40 @@
+<listing>
+    <guesthouses>
+        <id>t_guesthouse_1</id>
+        <name>Adonai GuestHouse</name>
+        <address>Unknown</address>
+        <tagline>Come Rest a While</tagline>
+        <email></email>
+        <url>www.adonaiguesthouse.com/</url>
+        <telphone>(+256) 772909355, 777201697</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+        </locations>
+        <searchtags>
+            <searchtag>guest house</searchtag>
+            <searchtag>accommodation</searchtag>
+            <searchtag>housing</searchtag>
+            <searchtag>adonai</searchtag>
+        </searchtags>
+    </guesthouses>
+    <guesthouses>
+        <id>t_guesthouse_1</id>
+        <name>Namirembe GuestHouse</name>
+        <address>P.O. Box 14127, Plot No. 1085, Willis Road, Kampala/Uganda</address>
+        <tagline></tagline>
+        <email></email>
+        <url>www.namirembe-guesthouse.com/</url>
+        <telphone>(+256) 414273778, 312109937</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+        </locations>
+        <searchtags>
+            <searchtag>guest house</searchtag>
+            <searchtag>accommodation</searchtag>
+            <searchtag>housing</searchtag>
+            <searchtag>namirembe</searchtag>
+        </searchtags>
+    </guesthouses>
+</listing>

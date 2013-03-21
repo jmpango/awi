@@ -8,8 +8,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.awi.ui.model.Buddy;
-import org.awi.ui.model.Globals;
 import org.awi.ui.server.service.impl.BuddyServiceImpl;
 import org.awi.ui.server.util.BuddyContants;
 import org.w3c.dom.Document;
@@ -25,10 +23,20 @@ import android.os.Bundle;
 
 public class SplashScreen extends BaseActivity {
 
+	private Thread splashThread;
+	private boolean isRuning = true;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash_screen_layout);
+
+		if (getIntent().getBooleanExtra("EXIT", false)) {
+			if (splashThread != null)
+				splashThread = null;
+			finish();
+		}
+
 		new LoadDataAsyncTask().execute();
 	}
 
@@ -44,34 +52,28 @@ public class SplashScreen extends BaseActivity {
 
 		@Override
 		protected void onPostExecute(Void result) {
-			BuddyNamesXmlAdapter instance = BuddyNamesXmlAdapter
-					.getInstance(getAssets());
-			List<String> names = instance.getNames();
-			Globals globals = Globals.getInstance();
+			BuddyContants.LOAD_APP_DATA(getAssets(), buddyService);
 
-			List<Buddy> buddies = new ArrayList<Buddy>();
-
-			for (String name : names) {
-				buddies = buddyService.getBuddies(getAssets(), "buddies/"
-						+ name + BuddyContants.DEFAULT_XML_EXTENTION, name);
-				globals.addGlobalData(name, buddies);
-			}
-
-			Thread splashThread = new Thread() {
+			splashThread = new Thread() {
 				long seconds = 0;
 
 				public void run() {
 					try {
-						while (true && seconds < 5000) {
-							if (!false)
-								seconds += 100;
-							sleep(100);
+						while (isRuning && seconds < 3000) {
+							seconds += 100;
+
+							if (seconds == 2999) {
+								isRuning = false;
+								sleep(100);
+							}
 						}
 					} catch (Exception e) {
 					} finally {
 						Intent intent = new Intent(SplashScreen.this,
 								MainBuddy.class);
+						isRuning = false;
 						SplashScreen.this.finish();
+						SplashScreen.this.moveTaskToBack(true);
 						startActivity(intent);
 					}
 				}
@@ -91,7 +93,7 @@ public class SplashScreen extends BaseActivity {
 	public static class BuddyNamesXmlAdapter {
 		private static BuddyNamesXmlAdapter instance;
 
-		private final String KEY_TAG = "buddyName";
+		private final String KEY_TAG = "buddy";
 		private final String KEY_NAME = "name";
 
 		private NodeList nodeList;

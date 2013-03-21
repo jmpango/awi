@@ -1,0 +1,40 @@
+<listing>
+    <hotels>
+        <id>t_aw_1</id>
+        <name>Colline Hotel</name>
+        <address>21 KM on Jinja Road, P.O.Box 7 Kampala </address>
+        <tagline></tagline>
+        <email>colline@colline.com</email>
+        <url>www.colline.com</url>
+        <telphone>(+256) 414347555</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>mukono</location>
+        </locations>
+        <searchtags>
+            <searchtag>hotel</searchtag>
+            <searchtag>accommodations</searchtag>
+            <searchtag>colline</searchtag>
+        </searchtags>
+    </hotels>
+    <hotels>
+        <id>t_aw_1</id>
+        <name>Fang Fang Hotel</name>
+        <address>Plot 9 Ssezibwa Rd, Nakasero K’la, P.O.Box 6323 Kampala </address>
+        <tagline></tagline>
+        <email>fanfanghotel@yahoo.com</email>
+        <url></url>
+        <telphone>(+256) 414235828</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>nakasero</location>
+        </locations>
+        <searchtags>
+            <searchtag>hotel</searchtag>
+            <searchtag>accommodations</searchtag>
+            <searchtag>fang</searchtag>
+            <searchtag>ssezibwa</searchtag>
+        </searchtags>
+    </hotels>
+</listing>

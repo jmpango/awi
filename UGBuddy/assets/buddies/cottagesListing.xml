@@ -1,0 +1,79 @@
+<listing>
+    <cottages>
+        <id>t_aw_1</id>
+        <name>Arcadia Cottages</name>
+        <address>Along Lake Bunyonyi</address>
+        <tagline>Your gateway to the natural wonders of the west of Uganda</tagline>
+        <email></email>
+        <url>www.arcadiacottages.net/</url>
+        <telphone>(+256) 414286261, 782424232, 781480105</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>mburo</location>
+            <location>bunyonyi</location>
+        </locations>
+        <searchtags>
+            <searchtag>accommodation</searchtag>
+            <searchtag>cottages</searchtag>
+            <searchtag>arcadia</searchtag>
+        </searchtags>
+    </cottages>
+    <cottages>
+        <id>t_aw_1</id>
+        <name>Feza Cottages</name>
+        <address>Bufuka Lake Bunyonyi, Kabale. P.O.Box 4499</address>
+        <tagline>Your gateway to the natural wonders of the west of Uganda</tagline>
+        <email>info@fezacottage.com</email>
+        <url>www.fezacottage.com/</url>
+        <telphone>(+256) 486426970, 753938947, 712938947</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>bunyonyi</location>
+            <location>kabale</location>
+            <location>bufuka</location>
+        </locations>
+        <searchtags>
+            <searchtag>accommodation</searchtag>
+            <searchtag>cottages</searchtag>
+            <searchtag>feza</searchtag>
+        </searchtags>
+    </cottages>
+    <cottages>
+        <id>t_aw_1</id>
+        <name>Lindsay Cottages</name>
+        <address>Plot 30, Lubowa Estates. P.O.Box 33566, Kampala</address>
+        <tagline>Your gateway to the natural wonders of the west of Uganda</tagline>
+        <email>lbaliddawa@yahoo.com</email>
+        <url></url>
+        <telphone>(+256) 414200587, 782535696</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>lubowa estates</location>
+            <location>kampala</location>
+        </locations>
+        <searchtags>
+            <searchtag>accommodation</searchtag>
+            <searchtag>cottages</searchtag>
+            <searchtag>lindsay</searchtag>
+        </searchtags>
+    </cottages>
+    <cottages>
+        <id>t_aw_1</id>
+        <name>Forest Cottages</name>
+        <address>Plot 17/18 Old Kira Road,Kampala</address>
+        <tagline></tagline>
+        <email>info@forest-cottages.com</email>
+        <url>www.forest-cottages.com</url>
+        <telphone>(+256) 312261279</telphone>
+        <locations>
+            <location>uganda</location>
+            <location>kampala</location>
+            <location>kira</location>
+        </locations>
+        <searchtags>
+            <searchtag>accommodation</searchtag>
+            <searchtag>cottages</searchtag>
+            <searchtag>Forest</searchtag>
+        </searchtags>
+    </cottages>
+</listing>
