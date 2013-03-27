@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10sp" >
+
+    <EditText
+        android:id="@+id/txt_search_query"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/main_search_text_hint"
+        android:singleLine="true" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/search_tip_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal|center"
+        android:text="@string/search_tip"
+        android:textSize="@dimen/list_view_tagline_font_size"
+        android:textColor="@color/search_tip_color"/>
+
+</LinearLayout>

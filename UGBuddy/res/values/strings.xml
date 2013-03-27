@@ -6,7 +6,7 @@
     <string name="logo_desc">App logo</string>
     <string name="default_desc">img</string>
     <string name="default_texbox_desc"></string>
-    <string name="search_text">search</string>
+    <string name="search_text">Search</string>
     <string name="search_hint">Search List ..</string>
     <string name="search_location_hint">location</string>
     <string name="default_page_name">DashBoard</string>
@@ -14,8 +14,7 @@
     <string name="default_dashboard_item_name">Transport</string>
     <string name="default_dashboard_item_tagline">Find?</string>
     <string name="title_activity_main_buddy">UG Buddy</string>
-    <string name="main_search_text_hint">Search anything ..</string>
-    <string name="main_search_location_text_hint">add location ..</string>
+    <string name="main_search_text_hint">Search</string>
     <string name="advanced_search_btn_text">Search</string>
     <string name="advanced_cancel_btn_text">Cancel</string>
     <string name="default_listing_name">XXXXX</string>
@@ -37,5 +36,6 @@
     <string name="default_email_text">Message</string>
     <string name="email_send_btn_text">Send</string>
     <string name="cancel_btn_text">Cancel</string>
+    <string name="search_tip">Separent key words by space.</string>
 
 </resources>

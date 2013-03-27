@@ -1,12 +1,17 @@
 package org.awi.ui.model;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Buddy implements Serializable, Comparable<Buddy> {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Buddy implements Parcelable, Comparable<Buddy> {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	/** private OBJECT obj; */
+	
 	private String id;
 	private String name;
 	private String tagLine;
@@ -97,5 +102,58 @@ public class Buddy implements Serializable, Comparable<Buddy> {
 		if (this.getName() == null || buddy.getName() == null)
 			return 0;
 		return this.name.compareToIgnoreCase(buddy.name);
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(id);
+		dest.writeString(name);
+		dest.writeString(tagLine);
+		dest.writeString(email);
+		dest.writeString(telphoneNos);
+		dest.writeString(url);
+		dest.writeString(address);
+		dest.writeTypedList(locations);
+		dest.writeTypedList(searchTags);
+		
+		/** dest.writeParcelable(obj, flags); */
+	}
+	
+	public static final Parcelable.Creator<Buddy> CREATOR = new Creator<Buddy>() {
+		
+		@Override
+		public Buddy[] newArray(int size) {
+			return new Buddy[size];
+		}
+		
+		@Override
+		public Buddy createFromParcel(Parcel in) {
+			return new Buddy(in);
+		}
+	};
+	
+	public Buddy(Parcel in){
+		this.id = in.readString();
+		this.name = in.readString();
+		this.tagLine = in.readString();
+		this.email = in.readString();
+		this.telphoneNos = in.readString();
+		this.url = in.readString();
+		this.address = in.readString();
+		
+		if(locations == null)
+			locations = new ArrayList<Location>();
+		in.readTypedList(locations, Location.CREATOR);
+		
+		if(searchTags == null)
+			searchTags = new ArrayList<SearchTag>();
+		in.readTypedList(searchTags, SearchTag.CREATOR);
+		
+		/** obj = in.readParcelable(OBJECT.class.getClassLoader()); */
 	}
 }

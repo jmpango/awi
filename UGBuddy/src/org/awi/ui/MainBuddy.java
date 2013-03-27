@@ -15,11 +15,10 @@ import org.awi.ui.server.service.impl.DashboardServiceImpl;
 import org.awi.ui.server.util.BuddyContants;
 import org.awi.ui.server.util.BuddyDialogRadio;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -27,6 +26,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -55,7 +55,10 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 		this.dashBoardListView = (ListView) findViewById(R.id.dashboard_list_view);
 		this.dashBoardSearchBox = (EditText) findViewById(R.id.search_box);
 		this.homeBtn = (ImageButton) findViewById(R.id.home_btn);
-
+		this.advancedSearchBtn = (ImageButton) findViewById(R.id.advanced_search_btn);
+		this.searchBox = (EditText) findViewById(R.id.txt_search_query);
+		this.locationSearchBox = (AutoCompleteTextView) findViewById(R.id.txt_search_query);
+		
 		backHomeBtnClickHandler();
 
 		this.dashBoardSearchBox.addTextChangedListener(this);
@@ -63,6 +66,8 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 
 		this.dashboardAsyncTask = new DashboardAsyncTask();
 		dashboardAsyncTask.execute();
+		
+		advancedSearch();
 	}
 
 	private class DashboardAsyncTask extends AsyncTask<Void, Void, Void> {
@@ -137,13 +142,14 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 			if (buddies.size() == 0) {
 				BuddyContants.LOAD_APP_DATA(getAssets(),
 						BuddyServiceImpl.getInstance());
+				buddies = Globals.getBuddy(name);
 			}
 
 			Intent intent = new Intent(MainBuddy.this, Listing.class);
 			Bundle bundle = new Bundle();
 			bundle.putString(BuddyContants.PAGE_NAME,
 					popUpNameListing[position]);
-			bundle.putString("buddyFileName", name);
+			bundle.putParcelableArrayList(BuddyContants.BUDDY_LISTING, (ArrayList<? extends Parcelable>) buddies);
 			intent.putExtras(bundle);
 			gabaggeCollector();
 			startActivity(intent);
@@ -175,7 +181,6 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 			dashBoardSearchBox = null;
 			pDialog = null;
 			homeBtn = null;
-			baseActivity = null;
 			MainBuddy.this.finish();
 		} catch (Throwable e) {
 		}
@@ -228,29 +233,9 @@ public class MainBuddy extends BaseActivity implements OnItemClickListener,
 		});
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void clossApplicationBtnClickHandler() {
-		AlertDialog alert_back = new AlertDialog.Builder(this).create();
-		alert_back.setTitle("UG Buddy");
-		alert_back.setMessage("Are you sure want to Quit?");
-
-		alert_back.setButton("No", new DialogInterface.OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-			}
-		});
-
-		alert_back.setButton2("Yes", new DialogInterface.OnClickListener() {
-
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				gabaggeCollector();
-				MainBuddy.this.onDestroy();
-			}
-		});
-		alert_back.show();
+		
 	}
+
 }

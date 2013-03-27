@@ -1,0 +1,44 @@
+<business>
+     <listing>
+        <name>Telecommunication</name>
+    </listing>
+    <listing>
+        <name>Newspapers</name>
+    </listing>
+    <listing>
+        <name>Electricians</name>
+    </listing>
+    <listing>
+        <name>Insurance Companies</name>
+    </listing>
+    <listing>
+        <name>Couriers</name>
+    </listing>
+     <listing>
+        <name>Cleaning Companies</name>
+    </listing>
+    <listing>
+        <name>Security Companies</name>
+    </listing>
+    <listing>
+        <name>Car Importers</name>
+    </listing>
+    <listing>
+        <name>Construction Companies</name>
+    </listing>
+    <listing>
+        <name>Consultancy Firms</name>
+    </listing>
+    <listing>
+        <name>Fumigators and Pest</name>
+    </listing>
+    <listing>
+        <name>Engravers</name>
+    </listing>
+    <listing>
+        <name>Advertising and Publicity</name>
+    </listing>
+    <listing>
+        <name>Catering and Events</name>
+    </listing>
+</business>

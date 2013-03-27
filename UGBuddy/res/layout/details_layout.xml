@@ -101,7 +101,7 @@
                             android:layout_marginLeft="5dp"
                             android:text="@string/default_listing_name"
                             android:textColor="@color/listing_tagline_color"
-                            android:textSize="@dimen/list_view_tagline_font_size"
+                            android:textSize="@dimen/details_content_font_size"
                             android:textStyle="bold"
                             android:typeface="sans"
                             android:width="0dip" />
@@ -140,7 +140,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/default_details_address_text"
                                     android:textColor="@color/listing_tagline_color"
-                                    android:textSize="@dimen/list_view_tagline_font_size"
+                                    android:textSize="@dimen/details_address_font_size"
                                     android:textStyle="bold"
                                     android:typeface="sans"
                                     android:width="0dip" />
@@ -169,7 +169,7 @@
                                     android:layout_marginLeft="5dp"
                                     android:text="@string/default_listing_name"
                                     android:textColor="@color/listing_tagline_color"
-                                    android:textSize="@dimen/list_view_tagline_font_size"
+                                    android:textSize="@dimen/details_content_font_size"
                                     android:textStyle="bold"
                                     android:typeface="sans"
                                     android:width="0dip" />
@@ -189,7 +189,7 @@
                                     android:layout_marginLeft="5dp"
                                     android:text="@string/default_listing_name"
                                     android:textColor="@color/listing_tagline_color"
-                                    android:textSize="@dimen/list_view_tagline_font_size"
+                                    android:textSize="@dimen/details_content_font_size"
                                     android:textStyle="bold"
                                     android:typeface="sans"
                                     android:width="0dip" />
@@ -209,7 +209,7 @@
                                     android:layout_marginLeft="5dp"
                                     android:text="@string/default_listing_name"
                                     android:textColor="@color/listing_tagline_color"
-                                    android:textSize="@dimen/list_view_tagline_font_size"
+                                    android:textSize="@dimen/details_content_font_size"
                                     android:textStyle="bold"
                                     android:typeface="sans"
                                     android:width="0dip" />
@@ -229,7 +229,7 @@
                                     android:layout_marginLeft="5dp"
                                     android:text="@string/default_listing_name"
                                     android:textColor="@color/listing_tagline_color"
-                                    android:textSize="@dimen/list_view_tagline_font_size"
+                                    android:textSize="@dimen/details_content_font_size"
                                     android:textStyle="bold"
                                     android:typeface="sans"
                                     android:width="0dip" />

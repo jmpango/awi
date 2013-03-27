@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.awi.ui.model.Buddy;
-import org.awi.ui.model.Globals;
 import org.awi.ui.server.databinder.BuddyDataBinder;
 import org.awi.ui.server.service.BackHomeButtonListener;
 import org.awi.ui.server.service.impl.BuddyServiceImpl;
@@ -19,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -27,11 +27,10 @@ import android.widget.TextView;
 public class Listing extends BaseActivity implements OnItemClickListener,
 		TextWatcher, BackHomeButtonListener {
 
-	private ListView listingListView;
 	private ListingSearchAsyncTask listingSearchAsyncTask;
 
-	private List<Buddy> listingList, tempListingList;
-	private String parentTag, buddyName;
+	private List<Buddy> listingList, appTempList;
+	private String parentTag;
 
 	private TextView pageTitle;
 
@@ -40,36 +39,39 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 		setContentView(R.layout.listing_layout);
 
 		Bundle bundle = this.getIntent().getExtras();
-		this.parentTag = bundle.getString(BuddyContants.PAGE_NAME).toUpperCase();
-		this.buddyName = bundle.getString("buddyFileName");
-
+		this.parentTag = bundle.getString(BuddyContants.PAGE_NAME)
+				.toUpperCase();
+		this.listingList = bundle.getParcelableArrayList(BuddyContants.BUDDY_LISTING);
+		
+		if(this.buddyService == null){
+			this.buddyService = BuddyServiceImpl.getInstance();
+		}
+		
 		prepareListingUI();
 	}
 
 	private void prepareListingUI() {
 		hideMsgBox();
 
-		this.listingListView = (ListView) findViewById(R.id.listing_list_view);
+		this.appListView = (ListView) findViewById(R.id.listing_list_view);
 		this.dashBoardSearchBox = (EditText) findViewById(R.id.search_box);
 		this.pageTitle = (TextView) findViewById(R.id.pageTitle);
 		this.homeBtn = (ImageButton) findViewById(R.id.home_btn);
-		
+		this.advancedSearchBtn = (ImageButton) findViewById(R.id.advanced_search_btn);
+		this.locationSearchBox = (AutoCompleteTextView) findViewById(R.id.txt_search_query);
+
 		backHomeBtnClickHandler();
-		
+
 		pageTitle.setText(parentTag + " LISTING");
 
 		this.dashBoardSearchBox.addTextChangedListener(this);
-		this.listingListView.setOnItemClickListener(this);
+		this.appListView.setOnItemClickListener(this);
 
-		if (buddyService == null) {
-			buddyService = BuddyServiceImpl.getInstance();
-		}
-
-		Globals.getInstance();
-		this.listingList = Globals.getBuddy(buddyName);
-		this.tempListingList = listingList;
-		listingListView.setAdapter(new BuddyDataBinder(Listing.this, listingList));
-
+		this.appTempList = listingList;
+		appListView.setAdapter(new BuddyDataBinder(Listing.this,
+				listingList));
+		
+		advancedSearch();
 	}
 
 	@Override
@@ -97,9 +99,12 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		Buddy buddy = tempListingList.get(position);
+		Buddy buddy = (Buddy) appTempList.get(position);
 		Intent intent = new Intent(Listing.this, Details.class);
-		intent.putExtra(BuddyContants.DEFAULT_BUDDY, buddy);
+		Bundle bundle = new Bundle();
+		bundle.putParcelable(BuddyContants.DEFAULT_BUDDY, buddy);
+		
+		intent.putExtras(bundle);
 		gabaggeCollector();
 		startActivity(intent);
 	}
@@ -107,19 +112,18 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 	private class ListingSearchAsyncTask extends AsyncTask<Void, Void, Void> {
 		@Override
 		protected Void doInBackground(Void... params) {
-			tempListingList = new ArrayList<Buddy>();
-			tempListingList = buddyService.searchBuddies(dashBoardSearchBox
-					.getText().toString(), listingList);
+			appTempList = new ArrayList<Buddy>();
+			appTempList = buddyService.searchBuddies(dashBoardSearchBox.getText().toString(), listingList);
 			return null;
 		}
 
 		@Override
 		protected void onPostExecute(Void result) {
-			if (tempListingList.size() == 0)
+			if (appTempList.size() == 0)
 				showMsgBox(BuddyContants.NO_RESULT_FOUND);
 
-			listingListView.setAdapter(new BuddyDataBinder(Listing.this,
-					tempListingList));
+			appListView.setAdapter(new BuddyDataBinder(Listing.this,
+					appTempList));
 		}
 	}
 
@@ -129,7 +133,7 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 	}
 
 	protected void gabaggeCollector() {
-		this.listingListView = null;
+		this.appListView = null;
 
 		if (listingSearchAsyncTask != null) {
 			listingSearchAsyncTask.cancel(true);
@@ -139,11 +143,11 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 		if (listingList != null)
 			this.listingList.clear();
 
-		if (tempListingList != null)
-			this.tempListingList.clear();
+		if (appTempList != null)
+			this.appTempList.clear();
 
 		this.listingList = null;
-		this.tempListingList = null;
+		this.appTempList = null;
 		this.parentTag = null;
 		this.pageTitle = null;
 		Listing.this.finish();
@@ -164,6 +168,6 @@ public class Listing extends BaseActivity implements OnItemClickListener,
 
 	@Override
 	public void clossApplicationBtnClickHandler() {
-		
+
 	}
 }

@@ -19,8 +19,9 @@ public class BuddyDataBinder extends BaseAdapter {
 	private ViewHolder holder;
 	private List<Buddy> dataz;
 
-	public BuddyDataBinder(Activity activity, List<Buddy> dataz) {
-		this.dataz = dataz;
+	@SuppressWarnings("unchecked")
+	public BuddyDataBinder(Activity activity, List<?> appTempList) {
+		this.dataz = (List<Buddy>) appTempList;
 		layoutInFlater = (LayoutInflater) activity
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}

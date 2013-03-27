@@ -56,14 +56,13 @@
         <tagline>Where to find them</tagline>
     </item>
     <item>
-        <id>d12</id>
-        <name>Worship</name>
-        <tagline>Time to pray!</tagline>
-    </item>
-    <item>
         <id>d13</id>
         <name>Recreaction</name>
         <tagline>Fun Time!</tagline>
     </item>
-    
+     <!-- <item>
+        <id>d12</id>
+        <name>Worship</name>
+        <tagline>Time to pray!</tagline>
+    </item> -->
 </dashboard>

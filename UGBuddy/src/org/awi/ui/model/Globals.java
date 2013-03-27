@@ -19,7 +19,7 @@ public class Globals {
 		return instance;
 	}
 
-	public HashMap<String, List<Buddy>> getDataz() {
+	public static HashMap<String, List<Buddy>> getDataz() {
 		return dataz;
 	}
 
@@ -32,11 +32,11 @@ public class Globals {
 		    return;
 		}
 
-		if (this.getDataz() == null) {
+		if (Globals.getDataz() == null) {
 		    this.setDataz(new HashMap<String, List<Buddy>>());
 		}
 
-		this.getDataz().put(identifier, buddies);
+		Globals.getDataz().put(identifier, buddies);
 	    }
 	
 	public static final List<Buddy> getBuddy(String identifier){

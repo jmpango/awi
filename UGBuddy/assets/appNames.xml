@@ -279,4 +279,99 @@
    <buddy>
        <name>airtimeandmobiledata</name>
    </buddy>
+   
+    <!-- =========== business ======== -->
+    <buddy>
+       <name>telecommunication</name>
+   </buddy>
+   <buddy>
+       <name>newspapers</name>
+   </buddy>
+   <buddy>
+       <name>electricians</name>
+   </buddy>
+   <buddy>
+       <name>insurancecompanies</name>
+   </buddy>
+   <buddy>
+       <name>couriers</name>
+   </buddy>
+   <buddy>
+       <name>cleaningcompanies</name>
+   </buddy>
+   <buddy>
+       <name>securitycompanies</name>
+   </buddy>
+   <buddy>
+       <name>carimporters</name>
+   </buddy>
+   <buddy>
+       <name>constructioncompanies</name>
+   </buddy>
+   <buddy>
+       <name>consultancyfirms</name>
+   </buddy>
+   <buddy>
+       <name>fumigatorsandpest</name>
+   </buddy>
+   <buddy>
+       <name>engravers</name>
+   </buddy>
+   <buddy>
+       <name>advertismentandpublicity</name>
+   </buddy>
+   <buddy>
+       <name>cateringandevents</name>
+   </buddy>
+   
+   <!-- =========== banks and currency exchange ======== -->
+   <buddy>
+       <name>bankofafrica</name>
+   </buddy>
+   <buddy>
+       <name>cranebank</name>
+   </buddy>
+   <buddy>
+       <name>equitybank</name>
+   </buddy>
+   <buddy>
+       <name>bankofbaroda</name>
+   </buddy>
+   <buddy>
+       <name>bankofuganda</name>
+   </buddy>
+   
+   <!-- =========== education ======== -->
+   <buddy>
+       <name>daycareandchildhood</name>
+   </buddy>
+   <buddy>
+       <name>primaryandsecondaryschools</name>
+   </buddy>
+    <buddy>
+       <name>universities</name>
+   </buddy>
+    <buddy>
+       <name>otherinstitutions</name>
+   </buddy>
+    <buddy>
+       <name>technicalschools</name>
+   </buddy>
+   <buddy>
+       <name>languagecenters</name>
+   </buddy>
+   
+    <!-- =========== useful organizations ======== -->
+    <buddy>
+       <name>governmentministries</name>
+   </buddy>
+   <buddy>
+       <name>nongovernmentalorganisations</name>
+   </buddy>
+   <buddy>
+       <name>embassies</name>
+   </buddy>
+   <buddy>
+       <name>associations</name>
+   </buddy>
 </buddyName>

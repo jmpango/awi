@@ -20,6 +20,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -43,12 +44,13 @@ public class Details extends BaseActivity implements TextWatcher,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.details_layout);
-		this.buddy = (Buddy) getIntent().getSerializableExtra(
-				BuddyContants.DEFAULT_BUDDY);
+		this.buddy = (Buddy) getIntent().getParcelableExtra(BuddyContants.DEFAULT_BUDDY);
+		
+//		/getSerializableExtra();
 
 		buildUI();
 		hideMsgBox();
-
+		advancedSearch();
 	}
 
 	private void buildUI() {
@@ -67,7 +69,10 @@ public class Details extends BaseActivity implements TextWatcher,
 		email_btn = (ImageButton) findViewById(R.id.details_email_btn);
 		rate_btn = (ImageButton) findViewById(R.id.rateme_btn);
 		homeBtn = (ImageButton) findViewById(R.id.home_btn);
-
+		this.advancedSearchBtn = (ImageButton) findViewById(R.id.advanced_search_btn);
+		this.searchBox = (EditText) findViewById(R.id.txt_search_query);
+		this.locationSearchBox = (AutoCompleteTextView) findViewById(R.id.txt_search_query);
+		
 		callBtnClickHandler();
 		ratemeBtnClickHandler();
 		backHomeBtnClickHandler();

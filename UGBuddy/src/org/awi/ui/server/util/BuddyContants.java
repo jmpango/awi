@@ -21,6 +21,7 @@ public final class BuddyContants {
 	public static final String BUDDY_NAMES_XML = "appNames.xml";
 	public static final String NO_RESULT_FOUND = "No search Found";
 	public static final String DEFAULT_APP_EMAIL = "info@ugbuddy.ug";
+	public static final String BUDDY_LISTING = "buddyListing";
 	
 	public static final String CONVERT_FIRST_LETTER_CAPS(String letter){
 		return letter.substring(0,1).toUpperCase()+ letter.substring(1, letter.length());

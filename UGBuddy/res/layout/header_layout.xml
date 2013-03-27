@@ -10,7 +10,7 @@
         android:id="@+id/logo_searchbox_dv"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@null" >
+        android:background="@drawable/banner_bg" >
 
         <ImageView
             android:id="@+id/logo"
@@ -27,7 +27,7 @@
             android:layout_height="50dp"
             android:layout_margin="3dp"
             android:layout_toRightOf="@id/logo"
-            android:background="@null"
+            android:background="@drawable/banner_bg"
             android:orientation="horizontal" >
 
             <LinearLayout
@@ -35,14 +35,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_alignParentLeft="true"
-                android:background="@null"
+                android:background="@drawable/banner_bg"
                 android:orientation="vertical" >
 
                 <LinearLayout
                     android:id="@+id/search_dv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
+                    android:background="@drawable/banner_bg"
                     android:orientation="horizontal"
                     android:weightSum="1" >
 
