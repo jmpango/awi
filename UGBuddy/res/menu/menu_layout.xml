@@ -6,6 +6,11 @@
         android:showAsAction="ifRoom|withText"
         android:title="UG BUDDY"/>
     <item
+        android:id="@+id/about_update"
+        android:icon="@drawable/menu_update_ico"
+        android:showAsAction="ifRoom|withText"
+        android:title="UPDATE"/>
+    <item
         android:id="@+id/about_ug"
         android:icon="@drawable/menu_uganda_ico"
         android:showAsAction="ifRoom|withText"

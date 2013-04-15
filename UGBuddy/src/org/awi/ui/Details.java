@@ -1,31 +1,38 @@
 package org.awi.ui;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import org.awi.ui.model.Buddy;
+import org.awi.ui.model.BuddyLocation;
+import org.awi.ui.model.BuddySearchTag;
 import org.awi.ui.server.service.AlertPositiveListener;
 import org.awi.ui.server.service.BackHomeButtonListener;
 import org.awi.ui.server.util.BuddyContants;
-import org.awi.ui.server.util.BuddyDialogRadio;
+import org.awi.ui.server.util.RadioDialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Details extends BaseActivity implements TextWatcher,
 		AlertPositiveListener, BackHomeButtonListener {
@@ -44,9 +51,8 @@ public class Details extends BaseActivity implements TextWatcher,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.details_layout);
-		this.buddy = (Buddy) getIntent().getParcelableExtra(BuddyContants.DEFAULT_BUDDY);
-		
-//		/getSerializableExtra();
+		this.buddy = (Buddy) getIntent().getParcelableExtra(
+				BuddyContants.DEFAULT_BUDDY);
 
 		buildUI();
 		hideMsgBox();
@@ -71,8 +77,7 @@ public class Details extends BaseActivity implements TextWatcher,
 		homeBtn = (ImageButton) findViewById(R.id.home_btn);
 		this.advancedSearchBtn = (ImageButton) findViewById(R.id.advanced_search_btn);
 		this.searchBox = (EditText) findViewById(R.id.txt_search_query);
-		this.locationSearchBox = (AutoCompleteTextView) findViewById(R.id.txt_search_query);
-		
+
 		callBtnClickHandler();
 		ratemeBtnClickHandler();
 		backHomeBtnClickHandler();
@@ -143,7 +148,7 @@ public class Details extends BaseActivity implements TextWatcher,
 			@Override
 			public void onClick(View v) {
 				FragmentManager manager = getSupportFragmentManager();
-				BuddyDialogRadio alert = new BuddyDialogRadio(tels,
+				RadioDialog alert = new RadioDialog(tels,
 						"Select a Number", "Call");
 				Bundle bundle = new Bundle();
 				bundle.putInt("position", 0);
@@ -195,6 +200,22 @@ public class Details extends BaseActivity implements TextWatcher,
 
 	private void gabaggeCollector() {
 		tels = null;
+		buddy = null;
+		details_name = null;
+		details_tagline = null;
+		details_address = null;
+		details_tel = null;
+		details_email = null;
+		details_website = null;
+		website_btn = null;
+		call_btn = null;
+		email_btn = null;
+		rate_btn = null;
+
+		try {
+			Details.this.finalize();
+		} catch (Throwable e) {
+		}
 	}
 
 	@Override
@@ -202,7 +223,7 @@ public class Details extends BaseActivity implements TextWatcher,
 		homeBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(Details.this, MainBuddy.class);
+				Intent intent = new Intent(Details.this, DashboardUI.class);
 				gabaggeCollector();
 				startActivity(intent);
 			}
@@ -263,10 +284,10 @@ public class Details extends BaseActivity implements TextWatcher,
 
 					email.setType("message/rfc822");
 					try {
-					startActivity(Intent.createChooser(email, 
-							"Choose an Email client :"));
+						startActivity(Intent.createChooser(email,
+								"Choose an Email client :"));
 					} catch (android.content.ActivityNotFoundException ex) {
-					    showToast("There are no email clients installed.");
+						showToast("There are no email clients installed.");
 					}
 
 					alertDialog.dismiss();
@@ -285,4 +306,215 @@ public class Details extends BaseActivity implements TextWatcher,
 		}
 	}
 
+	public void advancedSearch() {
+		advancedSearchBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				LayoutInflater layoutInflater = LayoutInflater
+						.from(Details.this);
+				View searchBoxView = layoutInflater.inflate(
+						R.layout.advanced_search_layout, null);
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+						Details.this);
+				alertDialogBuilder.setView(searchBoxView);
+
+				searchBox = (EditText) searchBoxView
+						.findViewById(R.id.txt_search_query);
+
+				alertDialogBuilder
+						.setCancelable(false)
+						.setPositiveButton("Search",
+								new DialogInterface.OnClickListener() {
+
+									@SuppressWarnings("null")
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										String searchQuery = searchBox
+												.getText().toString()
+												.toLowerCase();
+										List<Buddy> searchList = new ArrayList<Buddy>();
+
+										/*if (Globals.getInstance() == null) {
+											Globals.getInstance();
+										}*/
+										HashMap<String, List<Buddy>> datas = /*Globals.getDataz()*/ null;
+
+										if (!datas.isEmpty()) {
+											for (List<Buddy> buddies : datas
+													.values()) {
+												for (Buddy buddy : buddies) {
+
+													// -------- BY Buddy Name
+													// ---------//
+													String searchByName = buddy
+															.getName()
+															.toLowerCase();
+													if (searchByName
+															.contains(searchQuery)) {
+														if (!searchList
+																.contains(buddy)) {
+															searchList
+																	.add(buddy);
+															// break;
+														}
+													} else {
+														if (isExisting(
+																searchByName,
+																searchQuery)) {
+															if (!searchList
+																	.contains(buddy)) {
+																searchList
+																		.add(buddy);
+																// break;
+															}
+														} else {
+															boolean isAvailable = false;
+															for (BuddyLocation loc : buddy
+																	.getLocations()) {
+																String locationName = loc
+																		.getName()
+																		.toLowerCase();
+																if (locationName
+																		.contains(searchQuery)) {
+																	if (!searchList
+																			.contains(buddy)) {
+																		searchList
+																				.add(buddy);
+																		isAvailable = true;
+																		// break;
+																	}
+																} else {
+																	if (isExisting(
+																			locationName,
+																			searchQuery)) {
+																		if (!searchList
+																				.contains(buddy)) {
+																			searchList
+																					.add(buddy);
+																			isAvailable = true;
+																			// break;
+																		}
+																	}
+																}
+															}
+
+															if (!isAvailable) {
+																for (BuddySearchTag sTag : buddy
+																		.getSearchTags()) {
+																	String locationName = sTag
+																			.getName()
+																			.toLowerCase();
+																	if (locationName
+																			.contains(searchQuery)) {
+																		if (!searchList
+																				.contains(buddy)) {
+																			searchList
+																					.add(buddy);
+																			// break;
+																		}
+																	} else {
+																		if (isExisting(
+																				locationName,
+																				searchQuery)) {
+																			if (!searchList
+																					.contains(buddy)) {
+																				searchList
+																						.add(buddy);
+																				// break;
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+
+										if (searchList.isEmpty())
+											showMsgBox(searchQuery
+													+ " has no record. Try another search term.");
+										else {
+											Intent intent = new Intent(
+													getApplication(),
+													Listing.class);
+											Bundle bundle = new Bundle();
+											bundle.putString(
+													BuddyContants.PAGE_NAME,
+													"Advanced Search Results");
+											Collections.sort(searchList);
+											bundle.putParcelableArrayList(
+													BuddyContants.BUDDY_LISTING,
+													(ArrayList<? extends Parcelable>) searchList);
+											intent.putExtras(bundle);
+											intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+											gabaggeCollector();
+											searchList = null;
+											startActivity(intent);
+										}
+									}
+
+									private boolean isExisting(
+											String searchWord,
+											String searchQuery) {
+										String[] splitDemilter = searchQuery
+												.split("\\s+");
+										for (int index = 0; index < splitDemilter.length; index++) {
+											if (searchWord
+													.contains(splitDemilter[index])) {
+												return true;
+											}
+										}
+										return false;
+									}
+
+								})
+						.setNegativeButton("Cancel",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.cancel();
+									}
+								});
+
+				AlertDialog alertDialog = alertDialogBuilder.create();
+				alertDialog.show();
+
+			}
+		});
+	}
+	
+	public void showToast(String msg) {
+		Toast.makeText(Details.this, msg, Toast.LENGTH_SHORT).show();
+	}
+	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		switch (item.getItemId()){
+		case R.id.about_ug:
+			showToast("About Uganda is Selected");
+			return false;
+		case R.id.about_update:
+			showToast("Update is Selected");
+			return true;
+		case R.id.about_ug_buddy:
+			showToast("Abour UGBuddy is Selected");
+			return true;
+		case R.id.important_numbers:
+			showToast("IMportant Nos is Selected");
+			return true;
+		case R.id.practical_info:
+			showToast("Practical Info is Selected");
+			return true;
+		case R.id.help:
+			showToast("Update is Selected");
+			return true;
+		}
+		return false;
+	}
 }

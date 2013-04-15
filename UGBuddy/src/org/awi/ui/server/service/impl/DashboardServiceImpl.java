@@ -1,68 +1,64 @@
 package org.awi.ui.server.service.impl;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.awi.ui.model.DashBoard;
-import org.awi.ui.server.adpter.DashboardXmlAdapter;
+import org.awi.ui.server.dao.DashboardDAO;
 import org.awi.ui.server.service.DashboardService;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 
-import android.content.res.AssetManager;
+import android.content.Context;
 
 public class DashboardServiceImpl implements DashboardService {
+	private DashboardDAO dashboardDAO;
 
-	private DashboardXmlAdapter dashBoardXmlAdapter;
-	public static DashboardServiceImpl instance;
-	
-	private DashboardServiceImpl(AssetManager assetManager){
-		try {
-			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-			Document doc = docBuilder.parse(assetManager.open("dashboard.xml"));
-			dashBoardXmlAdapter = new DashboardXmlAdapter(doc);
-		} catch (ParserConfigurationException e) {
-		} catch (SAXException e) {
-		} catch (IOException e) {
-		}
-		
-	}
-	
-	public static DashboardServiceImpl getInstance(AssetManager aM){
-		if(instance == null){
-			instance = new DashboardServiceImpl(aM);
-		}
-		return instance;
-		
-	}
-	
-	@Override
-	public List<DashBoard> getDashBoardData() {
-		if(dashBoardXmlAdapter == null)
-			return new ArrayList<DashBoard>();
-		
-		return dashBoardXmlAdapter.getItems();
+	public DashboardServiceImpl(Context context) {
+		this.dashboardDAO = new DashboardDAO(context);
 	}
 
 	@Override
-	public List<DashBoard> searchDashBoardData(String searchString, List<DashBoard> items) {
-		int textLength = searchString.length();
+	public DashBoard getDashboardById(int id) {
+		return dashboardDAO.getDashboardById(id);
+	}
+
+	@Override
+	public List<DashBoard> getAllDashboards() {
+		return dashboardDAO.getAllDashboards();
+	}
+
+	@Override
+	public int getDashboardsCount() {
+		return dashboardDAO.getDashboardsCount();
+	}
+
+	@Override
+	public void addDashboard(DashBoard dashboard) {
+		dashboardDAO.addDashboard(dashboard);
+	}
+
+	@Override
+	public int updateDashboard(DashBoard dashboard) {
+		return dashboardDAO.updateDashboard(dashboard);
+	}
+
+	@Override
+	public void deleteDashboard(DashBoard dashboard) {
+		dashboardDAO.deleteDashboard(dashboard);
+	}
+
+	@Override
+	public List<DashBoard> dashboardSearch(String query,
+			List<DashBoard> dashboards) {
+		int textLength = query.length();
 		List<DashBoard> newSearchedDashBoard = new ArrayList<DashBoard>();
 
-		if(items != null){
-			for (DashBoard dashBoard : items) {
-
-				if (textLength <= dashBoard.getName().length()) {
-					if (searchString.equalsIgnoreCase(dashBoard.getName()
-							.substring(0, textLength))) {
-						newSearchedDashBoard.add(dashBoard);
+		if (dashboards != null) {
+			for (DashBoard dashboard : dashboards) {
+				if (textLength <= dashboard.getName().length()) {
+					if (query.equalsIgnoreCase(dashboard.getName().substring(0,
+							textLength))) {
+						newSearchedDashBoard.add(dashboard);
 					}
 				}
 			}
@@ -71,4 +67,13 @@ public class DashboardServiceImpl implements DashboardService {
 		return newSearchedDashBoard;
 	}
 
+	@Override
+	public String getUpdateDate() {
+		return dashboardDAO.getUpdateDate();
+	}
+
+	@Override
+	public void setUpdateDate(String newUpdateDate) {
+		dashboardDAO.setUpdateDate(newUpdateDate);
+	}
 }

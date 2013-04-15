@@ -1,11 +1,17 @@
 package org.awi.ui.model;
 
-public class DashBoard implements Comparable<DashBoard>{
-	private String id;
+public class DashBoard implements Comparable<DashBoard> {
+	private int id;
 	private String name;
 	private String tagLine;
 
 	public DashBoard() {
+	}
+
+	public DashBoard(int id, String name, String tagLine) {
+		this.id = id;
+		this.name = name;
+		this.tagLine = tagLine;
 	}
 
 	public String getName() {
@@ -24,11 +30,11 @@ public class DashBoard implements Comparable<DashBoard>{
 		this.tagLine = tagLine;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

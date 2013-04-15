@@ -19,8 +19,8 @@ public class Buddy implements Parcelable, Comparable<Buddy> {
 	private String telphoneNos;
 	private String url;
 	private String address;
-	private List<Location> locations;
-	private List<SearchTag> searchTags;
+	private List<BuddyLocation> locations;
+	private List<BuddySearchTag> searchTags;
 
 	public Buddy() {
 	}
@@ -73,19 +73,19 @@ public class Buddy implements Parcelable, Comparable<Buddy> {
 		this.url = url;
 	}
 
-	public List<Location> getLocations() {
+	public List<BuddyLocation> getLocations() {
 		return locations;
 	}
 
-	public void setLocations(List<Location> locations) {
+	public void setLocations(List<BuddyLocation> locations) {
 		this.locations = locations;
 	}
 
-	public List<SearchTag> getSearchTags() {
+	public List<BuddySearchTag> getSearchTags() {
 		return searchTags;
 	}
 
-	public void setSearchTags(List<SearchTag> searchTags) {
+	public void setSearchTags(List<BuddySearchTag> searchTags) {
 		this.searchTags = searchTags;
 	}
 
@@ -147,12 +147,12 @@ public class Buddy implements Parcelable, Comparable<Buddy> {
 		this.address = in.readString();
 		
 		if(locations == null)
-			locations = new ArrayList<Location>();
-		in.readTypedList(locations, Location.CREATOR);
+			locations = new ArrayList<BuddyLocation>();
+		in.readTypedList(locations, BuddyLocation.CREATOR);
 		
 		if(searchTags == null)
-			searchTags = new ArrayList<SearchTag>();
-		in.readTypedList(searchTags, SearchTag.CREATOR);
+			searchTags = new ArrayList<BuddySearchTag>();
+		in.readTypedList(searchTags, BuddySearchTag.CREATOR);
 		
 		/** obj = in.readParcelable(OBJECT.class.getClassLoader()); */
 	}

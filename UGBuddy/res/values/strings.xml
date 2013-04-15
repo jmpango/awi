@@ -13,7 +13,7 @@
     <string name="default_nav_msg">No results found.</string>
     <string name="default_dashboard_item_name">Transport</string>
     <string name="default_dashboard_item_tagline">Find?</string>
-    <string name="title_activity_main_buddy">UG Buddy</string>
+    <string name="title_dashboardUI">UG Buddy</string>
     <string name="main_search_text_hint">Search</string>
     <string name="advanced_search_btn_text">Search</string>
     <string name="advanced_cancel_btn_text">Cancel</string>
@@ -36,6 +36,12 @@
     <string name="default_email_text">Message</string>
     <string name="email_send_btn_text">Send</string>
     <string name="cancel_btn_text">Cancel</string>
-    <string name="search_tip">Separent key words by space.</string>
-
+    <string name="search_tip">Separate key words with a space.</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_update_ui">UpdateUI</string>
+	<string name="download_text">Downloading, please wait..</string>
+	<string name="progress_text">Progress: 0%</string>
+	<string name="download_button_text">Start</string>
+	
 </resources>
