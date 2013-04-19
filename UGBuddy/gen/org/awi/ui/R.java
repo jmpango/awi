@@ -137,7 +137,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int loadingtext=0x7f090045;
         public static final int logo=0x7f09002e;
         public static final int logo_searchbox_dv=0x7f09002d;
-        public static final int menu_settings=0x7f09004d;
         public static final int msg_label=0x7f090034;
         public static final int name=0x7f09000b;
         public static final int nav_dv=0x7f090005;
@@ -165,22 +164,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int visit_website_btn=0x7f090025;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int advanced_search_layout=0x7f030001;
-        public static final int advert_layout=0x7f030002;
-        public static final int dashboardui_layout=0x7f030003;
-        public static final int dashboardui_row_tpl=0x7f030004;
-        public static final int details_layout=0x7f030005;
-        public static final int email_layout=0x7f030006;
-        public static final int header_layout=0x7f030007;
-        public static final int listing_layout=0x7f030008;
-        public static final int listing_row_template=0x7f030009;
-        public static final int splash_screen_layout=0x7f03000a;
+        public static final int advanced_search_layout=0x7f030000;
+        public static final int advert_layout=0x7f030001;
+        public static final int dashboardui_layout=0x7f030002;
+        public static final int dashboardui_row_tpl=0x7f030003;
+        public static final int detailui_layout=0x7f030004;
+        public static final int email_layout=0x7f030005;
+        public static final int header_layout=0x7f030006;
+        public static final int listingui_layout=0x7f030007;
+        public static final int listingui_row_tpl=0x7f030008;
+        public static final int splash_screenui_layout=0x7f030009;
+        public static final int splashscreenui_layout=0x7f03000a;
         public static final int updateui_layout=0x7f03000b;
     }
     public static final class menu {
         public static final int menu_layout=0x7f080000;
-        public static final int updateui_layout=0x7f080001;
     }
     public static final class string {
         public static final int advanced_cancel_btn_text=0x7f06000f;

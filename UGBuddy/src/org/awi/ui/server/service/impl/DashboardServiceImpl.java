@@ -1,7 +1,5 @@
 package org.awi.ui.server.service.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.awi.ui.model.DashBoard;
@@ -45,26 +43,6 @@ public class DashboardServiceImpl implements DashboardService {
 	@Override
 	public void deleteDashboard(DashBoard dashboard) {
 		dashboardDAO.deleteDashboard(dashboard);
-	}
-
-	@Override
-	public List<DashBoard> dashboardSearch(String query,
-			List<DashBoard> dashboards) {
-		int textLength = query.length();
-		List<DashBoard> newSearchedDashBoard = new ArrayList<DashBoard>();
-
-		if (dashboards != null) {
-			for (DashBoard dashboard : dashboards) {
-				if (textLength <= dashboard.getName().length()) {
-					if (query.equalsIgnoreCase(dashboard.getName().substring(0,
-							textLength))) {
-						newSearchedDashBoard.add(dashboard);
-					}
-				}
-			}
-		}
-		Collections.sort(newSearchedDashBoard);
-		return newSearchedDashBoard;
 	}
 
 	@Override

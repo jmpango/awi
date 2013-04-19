@@ -12,7 +12,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class DashboardDAO extends BaseDAO {
 	private static final String DASHBOARD_TABLE = "dashboard";
-	private static final String SYS_UPDATE_TABLE = "sys_update";
 
 	public DashboardDAO(Context context) {
 		super(context);

@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.awi.ui.model.Buddy;
 import org.awi.ui.model.DashBoard;
 import org.awi.ui.model.DashboardCategory;
 import org.awi.ui.server.service.AlertPositiveListener;
+import org.awi.ui.server.service.BuddyService;
 import org.awi.ui.server.service.DashboardCategoryService;
 import org.awi.ui.server.service.DashboardService;
+import org.awi.ui.server.service.SearchService;
+import org.awi.ui.server.service.impl.BuddyServiceImpl;
 import org.awi.ui.server.service.impl.DashboardCategoryServiceImpl;
 import org.awi.ui.server.service.impl.DashboardServiceImpl;
+import org.awi.ui.server.service.impl.SearchServiceImpl;
 import org.awi.ui.server.util.BuddyContants;
 import org.awi.ui.server.util.RadioDialog;
 import org.awi.ui.server.viewbinders.DashboardUIBinder;
@@ -18,6 +23,7 @@ import org.awi.ui.server.viewbinders.DashboardUIBinder;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -44,6 +50,8 @@ public class DashboardUI extends BaseActivity implements TextWatcher,
 	private List<DashBoard> tempDashboardList;
 	private DashboardService dashboardService;
 	private DashboardCategoryService dashboardCategoryService;
+	private BuddyService buddyService;
+	private SearchService searchService;
 	private DashboardSearchAsyncTask dashboardSearchAsyncTask;
 	private String[] dashboardCategories;
 
@@ -92,8 +100,10 @@ public class DashboardUI extends BaseActivity implements TextWatcher,
 		@Override
 		protected Void doInBackground(Void... params) {
 			tempDashboardList = new ArrayList<DashBoard>();
-			tempDashboardList = dashboardService.dashboardSearch(
-					dashBoardSearchBox.getText().toString(), dashboardList);
+			if(searchService == null){
+				searchService = new SearchServiceImpl();
+			}
+			tempDashboardList = searchService.dashboardSearch(dashBoardSearchBox.getText().toString(), dashboardList);
 			return null;
 		}
 	}
@@ -169,8 +179,24 @@ public class DashboardUI extends BaseActivity implements TextWatcher,
 	@Override
 	public void onPositiveClick(int position) {
 		if(dashboardCategories != null){
-			//String categoryName = dashboardCategories[position];
-			//DashboardCategory dashboardCategory = dashboardCategoryService.getDashboardCategoryByName(categoryName);
+			String categoryName = dashboardCategories[position];
+			DashboardCategory dashboardCategory = dashboardCategoryService.getDashboardCategoryByName(categoryName);
+			buddyService = new BuddyServiceImpl(DashboardUI.this);
+			
+			List<Buddy> buddies = buddyService.getAllBuddiesByDashboardCategoryId(dashboardCategory.getId());
+			Collections.sort(buddies);
+			
+			if(!buddies.isEmpty()){
+				Intent intent = new Intent(DashboardUI.this, ListingUI.class);
+				Bundle bundle = new Bundle();
+				bundle.putString(BuddyContants.PAGE_NAME, 	dashboardCategories[position]);
+				bundle.putParcelableArrayList(BuddyContants.BUDDY_LISTING, (ArrayList<? extends Parcelable>) buddies);
+				intent.putExtras(bundle);
+				
+				DashboardUI.this.finish();
+				startActivity(intent);
+			}
+			
 		}
 	}
 }

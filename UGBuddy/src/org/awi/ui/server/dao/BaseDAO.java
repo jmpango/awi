@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class BaseDAO extends SQLiteOpenHelper {
+	public static final String SYS_UPDATE_TABLE = "sys_update";
 	
 	public BaseDAO(Context context) {
 		super(context, BuddyContants.DATABASE_NAME, null, BuddyContants.DATABASE_VERSION);
@@ -19,9 +20,9 @@ public class BaseDAO extends SQLiteOpenHelper {
 		String CREATE_BUDDY_TABLE = "CREATE TABLE buddy(id INTEGER PRIMARY KEY, name TEXT, tagline TEXT, address TEXT, telphone TEXT, email TEXT, fax TEXT, url TEXT, dashboard_category_id INTEGER, FOREIGN KEY(dashboard_category_id) REFERENCES dashboardcategory(id))";
 		String CREATE_BUDDY_LOCATION_TABLE = "CREATE TABLE buddy_location(id INTEGER PRIMARY KEY, location_name TEXT, buddy_id INTEGER, FOREIGN KEY(buddy_id) REFERENCES buddy(id))";
 		String CREATE_BUDDY_SEARCH_TAG_TABLE = "CREATE TABLE buddy_search_tag(id INTEGER PRIMARY KEY, searchtag TEXT, buddy_id INTEGER, FOREIGN KEY(buddy_id) REFERENCES buddy(id))";
-		String CREATE_BUDDY_RATING_TABLE = "CREATE TABLE buddy_rating(id INTEGER PRIMARY KEY, rate INTEGER, buddy_id INTEGER, FOREIGN KEY(buddy_id) REFERENCES buddy(id))";
-		String CREATE_SEARCH_TERM_TABLE = "CREATE TABLE search_terms(id INTEGER PRIMARY KEY, term TEXT)";
-		String CREATE_BUDDY_USAGE_TABLE = "CREATE TABLE buddy_usage(id INTEGER PRIMARY KEY, page_hits INT, call_hits INT, url_hits INT, email_hits INT , buddy_id INTEGER, FOREIGN KEY(buddy_id) REFERENCES buddy(id))";
+		String CREATE_BUDDY_RATING_TABLE = "CREATE TABLE buddy_rating(id INTEGER PRIMARY KEY AUTOINCREMENT, rate INTEGER, buddy_id INTEGER, FOREIGN KEY(buddy_id) REFERENCES buddy(id))";
+		String CREATE_SEARCH_TERM_TABLE = "CREATE TABLE search_terms(id INTEGER PRIMARY KEY AUTOINCREMENT, term TEXT)";
+		String CREATE_BUDDY_USAGE_TABLE = "CREATE TABLE buddy_usage(id INTEGER PRIMARY KEY AUTOINCREMENT, page_hits INTEGER, call_hits INTEGER, url_hits INTEGER, email_hits INTEGER , buddy_id INTEGER, FOREIGN KEY(buddy_id) REFERENCES buddy(id))";
 		String CREATE_BUDDY_COMMENT_TABLE = "CREATE TABLE buddy_comments(id INTEGER PRIMARY KEY, comment TEXT, owner TEXT, post_date TEXT, status INT , buddy_id INTEGER, FOREIGN KEY(buddy_id) REFERENCES buddy(id))";
 		String CREATE_ADVERT_TABLE = "CREATE TABLE adverts(id INTEGER PRIMARY KEY, name TEXT, tagline TEXT, url TEXT, telphone TEXT, address TEXT, image_name TEXT, parent_id INTEGER)";
 		String CREATE_SYS_UPDATE_TABLE = "CREATE TABLE sys_update(id INTEGER PRIMARY KEY, name TEXT, last_update_date TEXT)";

@@ -7,16 +7,40 @@ public class BuddySearchTag implements Parcelable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	private int id;
 	private String searchTagName;
+	private String buddyId;
 	
 	public BuddySearchTag(){}
 
-	public String getName() {
+	public BuddySearchTag(int id, String searchTagName, String buddyId){
+		this.id = id;
+		this.searchTagName = searchTagName;
+		this.buddyId = buddyId;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getSearchTagName() {
 		return searchTagName;
 	}
 
-	public void setName(String name) {
-		this.searchTagName = name;
+	public void setSearchTagName(String searchTagName) {
+		this.searchTagName = searchTagName;
+	}
+
+	public String getBuddyId() {
+		return buddyId;
+	}
+
+	public void setBuddyId(String buddyId) {
+		this.buddyId = buddyId;
 	}
 
 	@Override
@@ -27,6 +51,8 @@ public class BuddySearchTag implements Parcelable{
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeString(searchTagName);
+		dest.writeInt(id);
+		dest.writeString(buddyId);
 	}
 	
 	public static final Parcelable.Creator<BuddySearchTag> CREATOR = new Creator<BuddySearchTag>() {
@@ -44,5 +70,7 @@ public class BuddySearchTag implements Parcelable{
 	
 	public BuddySearchTag(Parcel in){
 		this.searchTagName = in.readString();
+		this.id = in.readInt();
+		this.buddyId = in.readString();
 	}
 }

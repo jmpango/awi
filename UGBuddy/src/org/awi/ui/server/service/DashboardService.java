@@ -12,7 +12,6 @@ public interface DashboardService {
 	public void addDashboard(DashBoard dashboard);
 	public int updateDashboard(DashBoard dashboard);
 	public void deleteDashboard(DashBoard dashboard);
-	public List<DashBoard> dashboardSearch(String query, List<DashBoard> dashboards);
 	public String getUpdateDate();
 	public void setUpdateDate(String newUpdateDate);
 }

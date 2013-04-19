@@ -14,6 +14,8 @@ public final class BuddyContants {
 	public static final String DEFAULT_APP_EMAIL = "info@ugbuddy.ug";
 	public static final String BUDDY_LISTING = "buddyListing";
 	
+	public static final String SERVER_URL = "http://10.0.2.2:8000/w-awi/xxx/mobileApi/list/";
+	
 	public static final int DATABASE_VERSION = 1;
 	public static final String DATABASE_NAME = "ugbuddy";
 	

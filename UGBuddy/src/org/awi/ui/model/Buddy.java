@@ -1,35 +1,44 @@
 package org.awi.ui.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Buddy implements Parcelable, Comparable<Buddy> {
 
 	private static final long serialVersionUID = 1L;
-	
-	/** private OBJECT obj; */
-	
-	private String id;
+
+	private int id;
 	private String name;
 	private String tagLine;
 	private String email;
 	private String telphoneNos;
 	private String url;
+	private String fax;
 	private String address;
-	private List<BuddyLocation> locations;
-	private List<BuddySearchTag> searchTags;
+	private String dashboardCategoryId;
 
 	public Buddy() {
 	}
 
-	public String getId() {
+	public Buddy(int id, String name, String tagline, String email,
+			String telphoneNos, String url, String fax, String address,
+			String dashboardCategoryId) {
+		this.id = id;
+		this.name = name;
+		this.tagLine = tagline;
+		this.email = email;
+		this.telphoneNos = telphoneNos;
+		this.url = url;
+		this.fax = fax;
+		this.address = address;
+		this.dashboardCategoryId = dashboardCategoryId;
+	}
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -73,28 +82,28 @@ public class Buddy implements Parcelable, Comparable<Buddy> {
 		this.url = url;
 	}
 
-	public List<BuddyLocation> getLocations() {
-		return locations;
-	}
-
-	public void setLocations(List<BuddyLocation> locations) {
-		this.locations = locations;
-	}
-
-	public List<BuddySearchTag> getSearchTags() {
-		return searchTags;
-	}
-
-	public void setSearchTags(List<BuddySearchTag> searchTags) {
-		this.searchTags = searchTags;
-	}
-
 	public String getAddress() {
 		return address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getFax() {
+		return fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+
+	public String getDashboardCategoryId() {
+		return dashboardCategoryId;
+	}
+
+	public void setDashboardCategoryId(String dashboardCategoryId) {
+		this.dashboardCategoryId = dashboardCategoryId;
 	}
 
 	@Override
@@ -111,49 +120,39 @@ public class Buddy implements Parcelable, Comparable<Buddy> {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeString(id);
+		dest.writeInt(id);
 		dest.writeString(name);
 		dest.writeString(tagLine);
 		dest.writeString(email);
 		dest.writeString(telphoneNos);
 		dest.writeString(url);
+		dest.writeString(fax);
 		dest.writeString(address);
-		dest.writeTypedList(locations);
-		dest.writeTypedList(searchTags);
-		
-		/** dest.writeParcelable(obj, flags); */
+		dest.writeString(dashboardCategoryId);
 	}
-	
+
 	public static final Parcelable.Creator<Buddy> CREATOR = new Creator<Buddy>() {
-		
+
 		@Override
 		public Buddy[] newArray(int size) {
 			return new Buddy[size];
 		}
-		
+
 		@Override
 		public Buddy createFromParcel(Parcel in) {
 			return new Buddy(in);
 		}
 	};
-	
-	public Buddy(Parcel in){
-		this.id = in.readString();
+
+	public Buddy(Parcel in) {
+		this.id = in.readInt();
 		this.name = in.readString();
 		this.tagLine = in.readString();
 		this.email = in.readString();
 		this.telphoneNos = in.readString();
 		this.url = in.readString();
+		this.fax = in.readString();
 		this.address = in.readString();
-		
-		if(locations == null)
-			locations = new ArrayList<BuddyLocation>();
-		in.readTypedList(locations, BuddyLocation.CREATOR);
-		
-		if(searchTags == null)
-			searchTags = new ArrayList<BuddySearchTag>();
-		in.readTypedList(searchTags, BuddySearchTag.CREATOR);
-		
-		/** obj = in.readParcelable(OBJECT.class.getClassLoader()); */
+		this.dashboardCategoryId = in.readString();
 	}
 }

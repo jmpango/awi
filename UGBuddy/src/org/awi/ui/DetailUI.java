@@ -1,15 +1,12 @@
 package org.awi.ui;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
 import org.awi.ui.model.Buddy;
-import org.awi.ui.model.BuddyLocation;
-import org.awi.ui.model.BuddySearchTag;
 import org.awi.ui.server.service.AlertPositiveListener;
-import org.awi.ui.server.service.BackHomeButtonListener;
+import org.awi.ui.server.service.UsageService;
+import org.awi.ui.server.service.impl.UsageServiceImpl;
 import org.awi.ui.server.util.BuddyContants;
 import org.awi.ui.server.util.RadioDialog;
 
@@ -19,7 +16,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -34,8 +30,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Details extends BaseActivity implements TextWatcher,
-		AlertPositiveListener, BackHomeButtonListener {
+public class DetailUI extends BaseActivity implements TextWatcher,
+		AlertPositiveListener {
 
 	private Buddy buddy;
 	private TextView details_name;
@@ -46,14 +42,18 @@ public class Details extends BaseActivity implements TextWatcher,
 	private TextView details_website;
 	private ImageButton website_btn, call_btn, email_btn, rate_btn;
 	private String[] tels;
+	private UsageService usageService;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.details_layout);
+		setContentView(R.layout.detailui_layout);
 		this.buddy = (Buddy) getIntent().getParcelableExtra(
 				BuddyContants.DEFAULT_BUDDY);
-
+		
+		usageService = new UsageServiceImpl(this);
+		usageService.savePageHit(buddy.getId());
+		
 		buildUI();
 		hideMsgBox();
 		advancedSearch();
@@ -80,7 +80,6 @@ public class Details extends BaseActivity implements TextWatcher,
 
 		callBtnClickHandler();
 		ratemeBtnClickHandler();
-		backHomeBtnClickHandler();
 
 		details_name.setText(buddy.getName());
 		details_tagline.setText(buddy.getTagLine());
@@ -165,6 +164,7 @@ public class Details extends BaseActivity implements TextWatcher,
 			public void onClick(View v) {
 				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri
 						.parse("http://" + buddy.getUrl()));
+				usageService.saveUrlHit(buddy.getId());
 				startActivity(browserIntent);
 			}
 		});
@@ -195,44 +195,8 @@ public class Details extends BaseActivity implements TextWatcher,
 	public void onPositiveClick(int position) {
 		Intent callIntent = new Intent(Intent.ACTION_CALL);
 		callIntent.setData(Uri.parse("tel:" + tels[position]));
+		usageService.saveCallHit(buddy.getId());
 		startActivity(callIntent);
-	}
-
-	private void gabaggeCollector() {
-		tels = null;
-		buddy = null;
-		details_name = null;
-		details_tagline = null;
-		details_address = null;
-		details_tel = null;
-		details_email = null;
-		details_website = null;
-		website_btn = null;
-		call_btn = null;
-		email_btn = null;
-		rate_btn = null;
-
-		try {
-			Details.this.finalize();
-		} catch (Throwable e) {
-		}
-	}
-
-	@Override
-	public void backHomeBtnClickHandler() {
-		homeBtn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(Details.this, DashboardUI.class);
-				gabaggeCollector();
-				startActivity(intent);
-			}
-		});
-	}
-
-	@Override
-	public void clossApplicationBtnClickHandler() {
-
 	}
 
 	protected Dialog onCreateDialog(int id) {
@@ -284,6 +248,7 @@ public class Details extends BaseActivity implements TextWatcher,
 
 					email.setType("message/rfc822");
 					try {
+						usageService.saveEmailHit(buddy.getId());
 						startActivity(Intent.createChooser(email,
 								"Choose an Email client :"));
 					} catch (android.content.ActivityNotFoundException ex) {
@@ -312,11 +277,11 @@ public class Details extends BaseActivity implements TextWatcher,
 			@Override
 			public void onClick(View v) {
 				LayoutInflater layoutInflater = LayoutInflater
-						.from(Details.this);
+						.from(DetailUI.this);
 				View searchBoxView = layoutInflater.inflate(
 						R.layout.advanced_search_layout, null);
 				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-						Details.this);
+						DetailUI.this);
 				alertDialogBuilder.setView(searchBoxView);
 
 				searchBox = (EditText) searchBoxView
@@ -327,120 +292,22 @@ public class Details extends BaseActivity implements TextWatcher,
 						.setPositiveButton("Search",
 								new DialogInterface.OnClickListener() {
 
-									@SuppressWarnings("null")
 									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
-										String searchQuery = searchBox
+										/*String searchQuery = searchBox
 												.getText().toString()
 												.toLowerCase();
 										List<Buddy> searchList = new ArrayList<Buddy>();
 
-										/*if (Globals.getInstance() == null) {
+										if (Globals.getInstance() == null) {
 											Globals.getInstance();
-										}*/
-										HashMap<String, List<Buddy>> datas = /*Globals.getDataz()*/ null;
-
-										if (!datas.isEmpty()) {
-											for (List<Buddy> buddies : datas
-													.values()) {
-												for (Buddy buddy : buddies) {
-
-													// -------- BY Buddy Name
-													// ---------//
-													String searchByName = buddy
-															.getName()
-															.toLowerCase();
-													if (searchByName
-															.contains(searchQuery)) {
-														if (!searchList
-																.contains(buddy)) {
-															searchList
-																	.add(buddy);
-															// break;
-														}
-													} else {
-														if (isExisting(
-																searchByName,
-																searchQuery)) {
-															if (!searchList
-																	.contains(buddy)) {
-																searchList
-																		.add(buddy);
-																// break;
-															}
-														} else {
-															boolean isAvailable = false;
-															for (BuddyLocation loc : buddy
-																	.getLocations()) {
-																String locationName = loc
-																		.getName()
-																		.toLowerCase();
-																if (locationName
-																		.contains(searchQuery)) {
-																	if (!searchList
-																			.contains(buddy)) {
-																		searchList
-																				.add(buddy);
-																		isAvailable = true;
-																		// break;
-																	}
-																} else {
-																	if (isExisting(
-																			locationName,
-																			searchQuery)) {
-																		if (!searchList
-																				.contains(buddy)) {
-																			searchList
-																					.add(buddy);
-																			isAvailable = true;
-																			// break;
-																		}
-																	}
-																}
-															}
-
-															if (!isAvailable) {
-																for (BuddySearchTag sTag : buddy
-																		.getSearchTags()) {
-																	String locationName = sTag
-																			.getName()
-																			.toLowerCase();
-																	if (locationName
-																			.contains(searchQuery)) {
-																		if (!searchList
-																				.contains(buddy)) {
-																			searchList
-																					.add(buddy);
-																			// break;
-																		}
-																	} else {
-																		if (isExisting(
-																				locationName,
-																				searchQuery)) {
-																			if (!searchList
-																					.contains(buddy)) {
-																				searchList
-																						.add(buddy);
-																				// break;
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
 										}
+										HashMap<String, List<Buddy>> datas = Globals.getDataz() null;
 
-										if (searchList.isEmpty())
-											showMsgBox(searchQuery
-													+ " has no record. Try another search term.");
-										else {
 											Intent intent = new Intent(
 													getApplication(),
-													Listing.class);
+													ListingUI.class);
 											Bundle bundle = new Bundle();
 											bundle.putString(
 													BuddyContants.PAGE_NAME,
@@ -453,24 +320,8 @@ public class Details extends BaseActivity implements TextWatcher,
 											intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 											gabaggeCollector();
 											searchList = null;
-											startActivity(intent);
-										}
+											startActivity(intent);*/
 									}
-
-									private boolean isExisting(
-											String searchWord,
-											String searchQuery) {
-										String[] splitDemilter = searchQuery
-												.split("\\s+");
-										for (int index = 0; index < splitDemilter.length; index++) {
-											if (searchWord
-													.contains(splitDemilter[index])) {
-												return true;
-											}
-										}
-										return false;
-									}
-
 								})
 						.setNegativeButton("Cancel",
 								new DialogInterface.OnClickListener() {
@@ -490,7 +341,7 @@ public class Details extends BaseActivity implements TextWatcher,
 	}
 	
 	public void showToast(String msg) {
-		Toast.makeText(Details.this, msg, Toast.LENGTH_SHORT).show();
+		Toast.makeText(DetailUI.this, msg, Toast.LENGTH_SHORT).show();
 	}
 	
 	@Override
